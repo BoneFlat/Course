@@ -4,5 +4,26 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Example/Scenes/LoadScene/TempScene.unity
+    guid: cd76e16ca31916645aa4e045fd762bbb
+  - enabled: 1
+    path: Assets/Example/Scenes/ExCoordinate.unity
+    guid: 895f876aec45e294db7dfaeac4b6b01f
+  - enabled: 1
+    path: Assets/Example/Scenes/ExFakeLoadingScene.unity
+    guid: d165f180d4be15e428412ec23e9ec588
+  - enabled: 1
+    path: Assets/Example/Scenes/ExGame.unity
+    guid: 33ccbf685b47210489328c8b79c049ee
+  - enabled: 1
+    path: Assets/Example/Scenes/ExInnerLoadingScene.unity
+    guid: 8ceacf65ff10f4b4c9fc37219802d21e
+  - enabled: 1
+    path: Assets/Example/Scenes/ExMono.unity
+    guid: a82a689b50a9e0a4ab1c7c2023de776a
+  - enabled: 1
+    path: Assets/Example/Scenes/LoadScene/SceneHome.unity
+    guid: e03819811955f544cbd4c8f3775e7fdc
   m_configObjects: {}

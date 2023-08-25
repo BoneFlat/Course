@@ -33,5 +33,15 @@ namespace Example
         {
             Debug.Log("on pause");
         }
+
+        private void OnMouseDown()
+        {
+            Debug.Log("On Mouse down");
+        }
+        
+        private void OnMouseDrag()
+        {
+            Debug.Log("On Mouse drag");
+        }
     }
 }
