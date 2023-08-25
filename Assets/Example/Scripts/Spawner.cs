@@ -1,4 +1,4 @@
-﻿namespace Jackal
+﻿namespace Example
 {
 	using UnityEngine;
 

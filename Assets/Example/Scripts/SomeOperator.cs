@@ -1,28 +1,22 @@
-﻿namespace Example.Scripts
+﻿namespace Example
 {
 	using System;
 	using UnityEngine;
 
-	public class SomeOperator
+	public class NullOperator
 	{
 		// ?
 		public void Main()
 		{
 			int? a = null;
 			int? b = 5;
-			int? c = null;
+			Vector3? c = null;
 
 			// Using the null coalescing operator to provide a default value
-			int result1 = a ?? 0; // result1 is 0
-			int result2 = b ?? 0; // result2 is 5
-			int result3 = c ?? 0; // result3 is 0
+			int     result1 = a ?? 0; // result1 is 0
+			int     result2 = b ?? 0; // result2 is 5
+			Vector3 result3 = c ?? Vector3.zero; // result3 is 0
 			
-			// The null coalescing operator ?? is used to provide a default value when a nullable value is null.
-			// If the left-hand side of the operator is not null, it is returned.
-			// Otherwise, the right-hand side of the operator is returned.
-			// So, in the expression a??b??c, if a is not null, it is returned.
-			// Otherwise, if b is not null, it is returned.
-			// If both a and b are null, c is returned.
 		}
 
 		private ExProperties _exProperties;

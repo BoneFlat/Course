@@ -1,4 +1,4 @@
-namespace Example.Scripts
+namespace Example
 {
 	public class ExProperties
 	{

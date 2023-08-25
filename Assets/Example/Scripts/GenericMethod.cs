@@ -1,4 +1,4 @@
-﻿namespace Example.Scripts
+﻿namespace Example
 {
 	using System.Collections.Generic;
 	using UnityEngine;

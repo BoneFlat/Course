@@ -1,4 +1,4 @@
-﻿namespace Example.Scripts
+﻿namespace Example
 {
 	using UnityEngine;
 
@@ -20,6 +20,8 @@
 			
 			return result;
 		}
+		
+		//Excercise: write method return project of vector 3 on oxz plane
 	}
 
 	public class DemoMethodExtension
