@@ -12,10 +12,12 @@
 		
 		private void OnValidate()
 		{
-			_root.rotation = Quaternion.LookRotation(_rotateToPoint.position - _root.position, Vector3.up);
+			_root.rotation = Quaternion.LookRotation(_rotateToPoint.position - _root.position, Vector3.right);
 			
 			Debug.Log(_gimbal.eulerAngles);
 			Debug.Log(_gimbal.rotation);
+			
+			//exercise: make player always rotate to the red cube
 		}
 
 		private void OnDrawGizmos()

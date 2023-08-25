@@ -1,0 +1,9 @@
+- Thêm method spawn projectile cho script Player có sẵn, viết Script Projectile thỏa mãn yêu cầu:
+
+	+ Ấn nút F để spawn projectile từ vị trí của player tới Enemy. 
+	+ Projectile sẽ bay theo 1 trong 3 quỹ đạo:
+		- Bay thẳng đến enemy.
+		- Bay theo đường quarad bezier tới enemy với 3 điểm input là player.position, 
+									(player.position + enemy.position) + Vector3.up * 10, enemy.position;
+
+- Viết script cho camrea di chuyển theo player (CameraFollow);

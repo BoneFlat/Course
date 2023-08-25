@@ -39,6 +39,7 @@
 		public void Main()
 		{
 			normalAction = ExecuteNormal;
+			
 			void ExecuteNormal()
 			{
 				Debug.Log("this is normal action");
@@ -49,12 +50,12 @@
 			normalAction?.Invoke();
 		}
 		
-		// On class exercise
-		// private Action<param> powAction;
+		// // On class exercise: calculate sum of two interger (x,y)
+		// private Action<int, int> powAction;
 		// public void MainInput()
 		// {
 		// 	powAction = ExecutePow;
-		// 	void ExecutePow(param)
+		// 	void ExecutePow(int a, int b)
 		// 	{
 		// 		//TODO : calculate sum of 2 interger and log
 		// 	}

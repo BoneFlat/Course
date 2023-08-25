@@ -28,10 +28,20 @@
 	public class Enemy : IdentifierObj
 	{
 		public string name;
+
+		public void DoB()
+		{
+			
+		}
 	}
 
 	public class Decor : IdentifierObj
 	{
 		public Vector2 position;
+
+		public void DoA()
+		{
+			
+		}
 	}
 }

@@ -4,6 +4,7 @@
 	using UnityEngine;
 	using UnityEngine.Serialization;
 
+	[DefaultExecutionOrder(100000)]
 	public class Player : Character
 	{
 		[FormerlySerializedAs("_maxSpeed")] [Header("Move Settings")] [SerializeField]

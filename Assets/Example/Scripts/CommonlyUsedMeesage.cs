@@ -9,7 +9,10 @@ namespace Example
 
         private void OnValidate()
         {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
+            if (_rigidbody2D == null)
+                _rigidbody2D = GetComponent<Rigidbody2D>();
+            
+            Debug.Log("aaaaaaaaaaaaaaaaaaa");
         }
 
         private void OnDrawGizmos()

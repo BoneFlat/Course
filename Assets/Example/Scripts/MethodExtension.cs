@@ -22,6 +22,8 @@
 		}
 		
 		//Excercise: write method return project of vector 3 on oxz plane
+		
+		
 	}
 
 	public class DemoMethodExtension
@@ -33,6 +35,8 @@
 		{
 			var sum  = vectorOne.Plus(vectorup);
 			var sum2 = vectorOne.Plus(vectorup, Vector3.down, Vector3.back);
+			
+			
 		}
 	}
 }

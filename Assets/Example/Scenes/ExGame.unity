@@ -489,6 +489,10 @@ MonoBehaviour:
   _rotationSpeed: 900
   _lockTimeWhenCast: 0
   _rotateSpeedWhenCast: 0
+  _target: {fileID: 1414951802}
+  _row: 3
+  _oxAngle: 50
+  _distanceBetween: 1
 --- !u!1 &1028581156
 GameObject:
   m_ObjectHideFlags: 0
