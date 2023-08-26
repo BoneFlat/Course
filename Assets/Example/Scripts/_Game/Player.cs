@@ -5,7 +5,7 @@
 	using UnityEngine.Serialization;
 
 	[DefaultExecutionOrder(100000)]
-	public class Player : Character
+	public class Player : Character, IFindTarget
 	{
 		[FormerlySerializedAs("_maxSpeed")] [Header("Move Settings")] [SerializeField]
 		private float _moveSpeed;
@@ -21,6 +21,9 @@
 		[SerializeField] private float     _row = 3;
 		[SerializeField] private float     _oxAngle = 50;
 		[SerializeField] private float     _distanceBetween = 1;
+
+		[SerializeField] private Transform _barrel;
+		[SerializeField] private Transform _bulletPrefab;
 
 		private Quaternion _cacheMoveDirection;
 		private Vector3    _cachedInput;
@@ -42,6 +45,37 @@
 					Quaternion.RotateTowards(transform.rotation, targetRot, 
 						_rotationSpeed * Time.fixedDeltaTime);
 			}
+		}
+
+		private void Update()
+		{
+			if (Input.GetKeyDown(KeyCode.F))
+			{
+				Fire();
+			}
+		}
+		
+		private void Fire()
+		{
+			if (IsExistTarget())
+			{
+				var target = FindTarget();
+				var bullet = Instantiate(_bulletPrefab, _barrel.position, Quaternion.identity);
+				var aiming = bullet.GetComponent<Bullet>() as IAiming;
+				aiming.SetTarget(target);
+			}
+		}
+		
+		public Transform FindTarget()
+		{
+			var enemies = GameObject.FindGameObjectsWithTag(GameStaticVariables.ENEMY_TAG);
+			return enemies[0].transform;
+		}
+
+		public bool IsExistTarget()
+		{
+			var enemies = GameObject.FindGameObjectsWithTag(GameStaticVariables.ENEMY_TAG);
+			return (enemies.Length > 0);
 		}
 
 		private void OnDrawGizmos()
