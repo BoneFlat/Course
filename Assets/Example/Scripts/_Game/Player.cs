@@ -36,7 +36,7 @@
 
 			if (_cachedInput != Vector3.zero)
 			{
-				var targetRot = Quaternion.LookRotation(_cachedInput, Vector3.up);
+				var targetRot = Quaternion.LookRotation(_target.transform.position - transform.position, Vector3.up);
 				
 				transform.rotation =
 					Quaternion.RotateTowards(transform.rotation, targetRot, 
