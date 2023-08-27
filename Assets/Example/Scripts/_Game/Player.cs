@@ -44,6 +44,18 @@
 			}
 		}
 
+		public void StopMove()
+		{
+			
+		}
+
+		public GameSound GameSound;
+		public void Die()
+		{
+            GameSound.DisableSound();
+            // GameEventHandler.OnPlayerDie?.Invoke();
+		}
+
 		private void OnDrawGizmos()
 		{
 			var cross = Vector3.Cross(transform.position - _target.position, Vector3.back);
@@ -69,5 +81,6 @@
 			
 			Gizmos.DrawSphere(transform.position, 0.1f);
 		}
+		
 	}
 }
