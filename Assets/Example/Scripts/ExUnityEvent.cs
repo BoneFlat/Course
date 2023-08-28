@@ -9,6 +9,8 @@ namespace Example.Scripts
     
     }
     
+    // https://www.jacksondunstan.com/articles/3335#comment-713798
+    // https://stackoverflow.com/questions/2139812/what-is-a-callback
     public class ExUnityEvent : MonoBehaviour
     {
         public UnityEvent baseEvent;
@@ -41,8 +43,5 @@ namespace Example.Scripts
         {
             Debug.Log(input);
         }
-
-        // https://www.jacksondunstan.com/articles/3335#comment-713798
-        // https://stackoverflow.com/questions/2139812/what-is-a-callback
     }
 }
