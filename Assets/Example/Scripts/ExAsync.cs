@@ -1,34 +1,56 @@
 ﻿using System;
 using System.Threading;
 using System.IO;
-using UnityEditor;
 using UnityEngine;
 using Task = System.Threading.Tasks.Task;
 
 namespace Example.Scripts
 {
-    
+    using System.Net.Http;
+
     public class ExAsync : MonoBehaviour
     {
         private async void Start()
         {
-            Debug.Log(Thread.CurrentThread.ManagedThreadId);
+            // Debug.Log(Thread.CurrentThread.ManagedThreadId);
+            // Thread.Sleep(2000);
+            // Debug.Log(Thread.CurrentThread.ManagedThreadId);
+            //
+            //
+            // Task.Run(async () =>
+            // {
+            //     await Counting1();
+            //     Debug.Log("Task run" + Thread.CurrentThread.ManagedThreadId);
+            // });
+            //
+            // Counting1();
+
+            WaitCountingInAnotherThread();
+
+            HttpClient _httpClient = new HttpClient();
+            var        html        = await _httpClient.GetStringAsync("https://dotnetfoundation.org");
+            Debug.Log(html);
             
-            Task.Run(async () =>
+            // Ex: Write countdown async function trigger OnTimeEnd delegate when timer <= 0;
+            // input x = 5s; log time by second
+
+
+        }
+
+        public async Task WaitCountingInAnotherThread()
+        {
+            await Task.Run(async () =>
             {
-                await Counting1();
-                Debug.Log("Task run" + Thread.CurrentThread.ManagedThreadId);
+               await Counting1();
             });
             
-            Counting1();
-        
-           
+            Debug.Log($"Wait counting in {Thread.CurrentThread.ManagedThreadId}");
         }
         
         public async Task Counting1()
         {
             await Task.Delay(TimeSpan.FromSeconds(1f));
-            Debug.Log(Thread.CurrentThread.ManagedThreadId);
+            Debug.Log("Counting in " + Thread.CurrentThread.ManagedThreadId);
         }
 
         public async Task WaitToCounting()
@@ -56,6 +78,9 @@ namespace Example.Scripts
             //load asset
             // var loadAsync = 
             // await loadAsync.;
+            
+            HttpClient _httpClient = new HttpClient();
+            var        html        = await _httpClient.GetStringAsync("https://dotnetfoundation.org");
         }
     }
 }
