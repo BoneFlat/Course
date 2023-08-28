@@ -4,7 +4,8 @@ namespace Example
 {
     public interface IAiming
     {
-        public Transform target { get; set; }
-        void SetTarget(Transform target);
+        public Transform Target { get; set; }
+
+        public void SetTarget(Transform target);
     }
 }

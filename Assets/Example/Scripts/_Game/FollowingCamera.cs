@@ -7,10 +7,10 @@ namespace Example
     {
         [SerializeField] private Transform _player;
         
-        public Transform target { get; set; }
+        public Transform Target { get; set; }
         public void SetTarget(Transform target)
         {
-            this.target = target;
+            this.Target = target;
         }
 
         private Vector3 _distance;
@@ -18,15 +18,15 @@ namespace Example
         private void Start()
         {
             SetTarget(_player);
-            if (target != null)
+            if (Target != null)
             {
-                _distance = transform.position - target.position;
+                _distance = transform.position - Target.position;
             }
         }
 
         private void Update()
         {
-            transform.position = target.position + _distance;
+            transform.position = Target.position + _distance;
         }
     }
 }

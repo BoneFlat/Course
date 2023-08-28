@@ -24,6 +24,7 @@
 
 		[SerializeField] private Transform _barrel;
 		[SerializeField] private Transform _bulletPrefab;
+		[SerializeField] private Transform _bezierBulletPrefab;
 
 		private Quaternion _cacheMoveDirection;
 		private Vector3    _cachedInput;
@@ -53,6 +54,11 @@
 			{
 				Fire();
 			}
+			
+			if (Input.GetKeyDown(KeyCode.K))
+			{
+				FireBezier();
+			}
 		}
 		
 		private void Fire()
@@ -62,6 +68,17 @@
 				var target = FindTarget();
 				var bullet = Instantiate(_bulletPrefab, _barrel.position, Quaternion.identity);
 				var aiming = bullet.GetComponent<Bullet>() as IAiming;
+				aiming.SetTarget(target);
+			}
+		}
+
+		private void FireBezier()
+		{
+			if (IsExistTarget())
+			{
+				var target = FindTarget();
+				var bullet = Instantiate(_bezierBulletPrefab, _barrel.position, Quaternion.identity);
+				var aiming = bullet.GetComponent<BezierBullet>() as IAiming;
 				aiming.SetTarget(target);
 			}
 		}
