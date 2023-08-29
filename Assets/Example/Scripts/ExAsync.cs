@@ -28,25 +28,39 @@ namespace Example.Scripts
             WaitCountingInAnotherThread();
 
             HttpClient _httpClient = new HttpClient();
-            var        html        = await _httpClient.GetStringAsync("https://dotnetfoundation.org");
+            var html = await _httpClient.GetStringAsync("https://dotnetfoundation.org");
             Debug.Log(html);
-            
+
             // Ex: Write countdown async function trigger OnTimeEnd delegate when timer <= 0;
             // input x = 5s; log time by second
+            Test(5, LogTime);
+        }
 
+        void LogTime()
+        {
+            Debug.Log("Done wait time: ");
+        }
 
+        private async void Test(int x, Action action)
+        {
+            for (int i = 0; i < x; i++)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1f));
+                Debug.Log("Counting in " + (x - i));
+            }
+            action.Invoke();
         }
 
         public async Task WaitCountingInAnotherThread()
         {
             await Task.Run(async () =>
             {
-               await Counting1();
+                await Counting1();
             });
-            
+
             Debug.Log($"Wait counting in {Thread.CurrentThread.ManagedThreadId}");
         }
-        
+
         public async Task Counting1()
         {
             await Task.Delay(TimeSpan.FromSeconds(1f));
@@ -60,16 +74,16 @@ namespace Example.Scripts
             await Counting1();
             Debug.Log("stop couting");
         }
-        
+
         public async void LoadAsset()
         {
             var asset = Resources.LoadAsync("path-to-assets");
-            
+
             //write file
             StreamWriter writer = new StreamWriter("path");
             var writeTask = writer.WriteAsync("do write");
             await writeTask;
-            
+
             //read file
             StreamReader reader = new StreamReader("path");
             var readTask = reader.ReadLineAsync();
@@ -78,9 +92,9 @@ namespace Example.Scripts
             //load asset
             // var loadAsync = 
             // await loadAsync.;
-            
+
             HttpClient _httpClient = new HttpClient();
-            var        html        = await _httpClient.GetStringAsync("https://dotnetfoundation.org");
+            var html = await _httpClient.GetStringAsync("https://dotnetfoundation.org");
         }
     }
 }
