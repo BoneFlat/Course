@@ -22,6 +22,8 @@
 		[SerializeField] private float     _oxAngle = 50;
 		[SerializeField] private float     _distanceBetween = 1;
 
+		[SerializeField] private Projectile _projectilePrefab;
+
 		private Quaternion _cacheMoveDirection;
 		private Vector3    _cachedInput;
 
@@ -34,14 +36,14 @@
 
 			transform.position += _moveSpeed * Time.fixedDeltaTime * _cachedInput;
 
-			if (_cachedInput != Vector3.zero)
-			{
-				var targetRot = Quaternion.LookRotation(_cachedInput, Vector3.up);
-				
-				transform.rotation =
-					Quaternion.RotateTowards(transform.rotation, targetRot, 
-						_rotationSpeed * Time.fixedDeltaTime);
-			}
+			// if (_cachedInput != Vector3.zero)
+			// {
+			// 	var targetRot = Quaternion.LookRotation(_cachedInput, Vector3.up);
+			// 	
+			// 	transform.rotation =
+			// 		Quaternion.RotateTowards(transform.rotation, targetRot, 
+			// 			_rotationSpeed * Time.fixedDeltaTime);
+			// }
 		}
 
 		public void StopMove()
@@ -81,6 +83,34 @@
 			
 			Gizmos.DrawSphere(transform.position, 0.1f);
 		}
-		
+
+		private void Update()
+		{
+			FaceEnemy();
+
+			if (Input.GetKeyDown(KeyCode.Space))
+			{
+				Fire();
+			}
+		}
+
+		private void FaceEnemy()
+		{
+			if (_target == null)
+			{
+				return;
+			}
+
+			transform.rotation = Quaternion.RotateTowards(transform.rotation,
+				Quaternion.LookRotation(_target.position - transform.position, Vector3.up), 
+				_rotationSpeed * Time.deltaTime);
+		}
+
+		private void Fire()
+		{
+			var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+			projectile.SetTarget(_target);
+			projectile.Perform();
+		}
 	}
 }

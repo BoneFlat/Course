@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading;
 using System.IO;
+using System.Threading.Tasks;
 using UnityEngine;
-using Task = System.Threading.Tasks.Task;
 
 namespace Example.Scripts
 {
     using System.Net.Http;
-
+    
     public class ExAsync : MonoBehaviour
     {
         private async void Start()
@@ -34,7 +34,22 @@ namespace Example.Scripts
             // Ex: Write countdown async function trigger OnTimeEnd delegate when timer <= 0;
             // input x = 5s; log time by second
 
+            await CountDown(5, () =>
+            {
+                Debug.Log("Time End");
+            });
 
+        }
+
+        public async Task CountDown(int seconds, Action OnTimeEnd)
+        {
+            while (seconds > 0)
+            {
+                Debug.Log(seconds);
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                seconds--;
+            }
+            OnTimeEnd?.Invoke();
         }
 
         public async Task WaitCountingInAnotherThread()

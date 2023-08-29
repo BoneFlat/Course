@@ -51,6 +51,13 @@ namespace Example.Scripts
 
         private MyFirstDelegate _myDelegate;
 
+        private void Awake()
+        {
+            Func<int, int, int> sum;
+            sum = SumMethod;
+            sum?.Invoke(10, 10);
+        }
+
         public void MyFirstMethod()
         {
             
@@ -73,6 +80,8 @@ namespace Example.Scripts
             
             // 2. short hand
             _myDelegate?.Invoke();
+
+            
         }
 
         public void Method1()
@@ -84,5 +93,12 @@ namespace Example.Scripts
         {
             Debug.Log("method 2");
         }
+
+        public int SumMethod(int a, int b)
+        {
+            return a + b;
+        }
     }
+
+   
 }
