@@ -14,6 +14,9 @@
 
 		[Header("Skill Settings")] [SerializeField]
 		private float _lockTimeWhenCast;
+		[SerializeField] private GameObject _projectile;
+		[SerializeField] private Transform _firePoint;
+
 
 		[SerializeField] private float _rotateSpeedWhenCast;
 
@@ -36,12 +39,28 @@
 
 			if (_cachedInput != Vector3.zero)
 			{
-				var targetRot = Quaternion.LookRotation(_cachedInput, Vector3.up);
+				Vector3 direction = _target.transform.position - transform.position;
+				var targetRot = Quaternion.LookRotation(direction, Vector3.up);
 				
 				transform.rotation =
 					Quaternion.RotateTowards(transform.rotation, targetRot, 
 						_rotationSpeed * Time.fixedDeltaTime);
 			}
+			
+		}
+
+		private void Update()
+		{
+			if (Input.GetKeyDown(KeyCode.F))
+			{
+				SpawnProjectile();
+			}
+		}
+
+		private void SpawnProjectile()
+		{
+			GameObject projectile = Instantiate(_projectile, _firePoint.position, _firePoint.rotation);
+			projectile.GetComponent<Projectile>().SetBezierMovement(_target.position);
 		}
 
 		public void StopMove()
