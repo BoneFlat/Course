@@ -322,6 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 874438021}
   - component: {fileID: 874438022}
+  - component: {fileID: 874438023}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -373,6 +374,22 @@ MonoBehaviour:
   fireNormalProjectileKey: 103
   enemyPosition: {fileID: 1414951802}
   GameSound: {fileID: 0}
+--- !u!114 &874438023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874438020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f4abdb34348c47b7aa27ed0ad7bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 1028581158}
+  CameraTarget: {fileID: 874438021}
+  offset: {x: 0, y: 3, z: -5}
+  rotationSpeed: 10
 --- !u!1 &1028581156
 GameObject:
   m_ObjectHideFlags: 0
