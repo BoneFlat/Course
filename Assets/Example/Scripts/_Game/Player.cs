@@ -14,7 +14,13 @@
 
 		[Header("Skill Settings")] [SerializeField]
 		private float _lockTimeWhenCast;
-		[SerializeField] private GameObject _projectile;
+		[SerializeField] private GameObject _projectileBezier;
+		[SerializeField] private GameObject _projectileV;
+		public int bulletCount;
+		public float bulletSpeed;
+		public float arrowAngle;
+		public float arrowLength;
+
 		[SerializeField] private Transform _firePoint;
 
 
@@ -27,7 +33,12 @@
 
 		private Quaternion _cacheMoveDirection;
 		private Vector3    _cachedInput;
-
+		
+		public enum MyEnumeratedType 
+		{
+			Straight, Bezier, Vshaped
+		}
+		public MyEnumeratedType option;
 		private void FixedUpdate()
 		{
 			_cachedInput.x = Input.GetAxisRaw("Horizontal");
@@ -59,8 +70,47 @@
 
 		private void SpawnProjectile()
 		{
-			GameObject projectile = Instantiate(_projectile, _firePoint.position, _firePoint.rotation);
-			projectile.GetComponent<Projectile>().SetBezierMovement(_target.position);
+			Vector3 direction;
+			switch (option)
+			{
+				case MyEnumeratedType.Straight:
+					GameObject bullet = Instantiate(_projectileV, _firePoint.position, _firePoint.rotation);
+					direction = _target.position - _firePoint.position;
+					Projectile _bullet = bullet.GetComponent<Projectile>();
+					_bullet.Initialize(bulletSpeed, direction);
+					break;
+				
+				case MyEnumeratedType.Bezier:
+					GameObject projectile = Instantiate(_projectileBezier, _firePoint.position, _firePoint.rotation);
+					projectile.GetComponent<ProjectileBezier>().SetBezierMovement(_target.position);
+					break;
+				
+				case MyEnumeratedType.Vshaped:
+					GameObject firstBullet = Instantiate(_projectileV, _firePoint.position, _firePoint.rotation);
+					direction = _target.position - _firePoint.position;
+					Projectile _projectile = firstBullet.GetComponent<Projectile>();
+					_projectile.Initialize(bulletSpeed, direction);
+
+					for (int i = 1; i < bulletCount; i++)
+					{
+						GameObject bullet1 = Instantiate(_projectileV, _firePoint.position, _firePoint.rotation);
+						 _projectile = bullet1.GetComponent<Projectile>();
+						
+						Vector3 offset = Quaternion.Euler(0f, arrowAngle, 0f) * (transform.position - firstBullet.transform.position).normalized * 1 * i;
+						offset.y = 0;
+						bullet1.transform.position = firstBullet.transform.position + offset;
+						_projectile.Initialize(bulletSpeed, direction);
+						
+						GameObject bullet2 = Instantiate(_projectileV, _firePoint.position, _firePoint.rotation);
+						_projectile = bullet2.GetComponent<Projectile>();
+						
+						offset = Quaternion.Euler(0f, -arrowAngle, 0f) * (transform.position - firstBullet.transform.position).normalized * 1 * i;
+						offset.y = 0;
+						bullet2.transform.position = firstBullet.transform.position + offset;
+						_projectile.Initialize(bulletSpeed, direction);
+					}
+					break;
+			}
 		}
 
 		public void StopMove()

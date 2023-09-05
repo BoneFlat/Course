@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class Projectile : MonoBehaviour
+public class ProjectileBezier : Projectile
 {
     public QuadraticCurve curve;
-    [SerializeField] private float speed;
     [SerializeField] private Transform _enemy;
     public Transform Enemy
     {
@@ -20,9 +19,9 @@ public class Projectile : MonoBehaviour
     void Start()
     { 
     }
-    
 
-    private void FixedUpdate()
+
+    protected override void FixedUpdate()
     {
         sampleTime += Time.deltaTime * speed;
         transform.position = curve.evaluate(sampleTime);
@@ -44,8 +43,5 @@ public class Projectile : MonoBehaviour
         
     }
     
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(gameObject);
-    }
+
 }
