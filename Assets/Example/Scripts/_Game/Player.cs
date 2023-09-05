@@ -22,7 +22,8 @@
         [SerializeField] private float _distanceBetween = 1;
 
         [SerializeField] private GameObject bulletPrefab;
-        private GameObject bullet;
+        [SerializeField] private int numberBullets = 5;
+        private GameObject bullet, vShapeBullet;
         private float speed = 5f;
         private Vector3 controlPoint;
         private float distance;
@@ -42,6 +43,8 @@
             controlPoint = transform.position + _target.position + Vector3.up * 10;
             distance = Vector3.Distance(transform.position, _target.position);
             startTime = Time.time;
+
+            vShapeBullet = VShapeBullet();
         }
 
         private void FixedUpdate()
@@ -103,25 +106,41 @@
             return p;
         }
 
-        bool check1, check2;
+        bool check1, check2, check3;
         private void Update()
         {
             //transform.rotation = Quaternion.LookRotation(_target.position - transform.position);
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if (UnityEngine.Random.Range(0, 2) == 0) // quy dao 1
+                if (UnityEngine.Random.Range(0, 3) == 0) // quy dao 1
                 {
+                    vShapeBullet.SetActive(false);
                     check1 = true;
                     check2 = false;
+                    check3 = false;
+                    bullet.transform.position = transform.position;
+                    bullet.SetActive(true);
                 }
-                else // quy dao 2
+                else if (UnityEngine.Random.Range(0, 3) == 1) // quy dao 2
                 {
+                    vShapeBullet.SetActive(false);
                     check1 = false;
                     check2 = true;
+                    check3 = false;
+                    bullet.transform.position = transform.position;
+                    bullet.SetActive(true);
                 }
-                bullet.transform.position = transform.position;
-                bullet.SetActive(true);
+                else // quy dao 3
+                {
+                    bullet.SetActive(false);
+                    check1 = false;
+                    check2 = false;
+                    check3 = true;
+                    vShapeBullet.transform.position = transform.position;
+                    vShapeBullet.SetActive(true);
+                }
+                
             }
             if (check1)
             {
@@ -140,6 +159,31 @@
                     check2 = false;
                 }
             }
+            if (check3)
+            {
+                vShapeBullet.transform.Translate((_target.position - transform.position).normalized * speed * Time.deltaTime);
+            }
+        }
+
+        private GameObject VShapeBullet()
+        {
+            GameObject vShapeBullet = new GameObject();
+            vShapeBullet.SetActive(false);
+            for (int i = 1; i <= numberBullets; i++)
+            {
+                Vector3 position;
+                if (i % 2 == 0)
+                {
+                    position = new Vector3(i / 2 * 0.5f, i / 2 * 0.5f, 0);
+                }
+                else
+                {
+                    position = new Vector3(-i / 2 * 0.5f, i / 2 * 0.5f, 0);
+                }
+                GameObject bullet = Instantiate(bulletPrefab, position, Quaternion.identity);
+                bullet.transform.SetParent(vShapeBullet.transform);
+            }
+            return vShapeBullet;
         }
     }
 }
