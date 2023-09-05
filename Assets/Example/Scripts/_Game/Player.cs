@@ -3,6 +3,7 @@
 	using System;
 	using UnityEngine;
 	using UnityEngine.Serialization;
+    using static UnityEngine.EventSystems.EventTrigger;
 
 	[DefaultExecutionOrder(100000)]
 	public class Player : Character
@@ -27,6 +28,10 @@
 
         public GameObject bezierProjectilePrefab;
         public GameObject normalProjectilePrefab;
+		public GameObject VshapeProjectilePrefab;
+
+		public int numberOfProjectile = 5;
+
         public KeyCode fireBezierProjectileKey = KeyCode.F;
         public KeyCode fireNormalProjectileKey = KeyCode.G;
 
@@ -67,6 +72,10 @@
             else if (Input.GetKeyDown(fireNormalProjectileKey))
             {
                 FireNormalProjectile();
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                FireNormalProjectileInVShape();
             }
         }
 
@@ -130,6 +139,37 @@
             newProjectile.GetComponent<NormalProjectile>().SetTarget(enemyPos);
         }
 
+		private void FireNormalProjectileInVShape()
+		{
+
+            float angleStep = 180f / (numberOfProjectile - 1); // Angle between each projectile
+            float distanceBetweenRows = 1.0f; // Adjust this value to set the vertical distance between rows
+
+            for (int i = 0; i < numberOfProjectile; i++)
+            {
+                float angle = i * angleStep - 90f; // Angle for the first row of projectiles
+
+                // Calculate the position for the first row
+                Vector3 firstRowPosition = transform.position + Quaternion.Euler(0, angle, 0) * Vector3.forward;
+
+                // Calculate the position for the second row using reflection
+                Vector3 reflection = Vector3.Reflect(firstRowPosition - transform.position, Vector3.up);
+                Vector3 secondRowPosition = transform.position + reflection.normalized * distanceBetweenRows;
+
+                // Calculate the direction from the projectiles to the enemy
+                Vector3 firstRowDirection = (enemyPosition.position - firstRowPosition).normalized;
+                Vector3 secondRowDirection = (enemyPosition.position - secondRowPosition).normalized;
+
+                // Instantiate the projectiles at their respective positions and set their directions
+                GameObject firstRowProjectile = Instantiate(VshapeProjectilePrefab, firstRowPosition, Quaternion.identity);
+                firstRowProjectile.GetComponent<VShapeProjectile>().SetDirection(firstRowDirection, 2f);
+
+                GameObject secondRowProjectile = Instantiate(VshapeProjectilePrefab, secondRowPosition, Quaternion.identity);
+                secondRowProjectile.GetComponent<VShapeProjectile>().SetDirection(secondRowDirection, 2f);
+            }
+
+
+        }
 
     }
 }

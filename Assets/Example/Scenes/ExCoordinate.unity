@@ -348,6 +348,14 @@ MonoBehaviour:
   _row: 3
   _oxAngle: 45
   _distanceBetween: 1
+  bezierProjectilePrefab: {fileID: 0}
+  normalProjectilePrefab: {fileID: 0}
+  VshapeProjectilePrefab: {fileID: 0}
+  numberOfProjectile: 5
+  fireBezierProjectileKey: 102
+  fireNormalProjectileKey: 103
+  enemyPosition: {fileID: 0}
+  GameSound: {fileID: 0}
 --- !u!4 &293895527
 Transform:
   m_ObjectHideFlags: 0
@@ -823,13 +831,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539824244}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0.45445696, y: 0, z: 0, w: 0.8907687}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 29270486}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 54.06, y: 0, z: 0}
 --- !u!1 &1541823330
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +954,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664761075}
-  m_LocalRotation: {x: -0, y: -0.2251669, z: -0, w: 0.97432023}
+  m_LocalRotation: {x: 0.17139657, y: -0.17139657, z: -0.68601984, w: 0.68601984}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

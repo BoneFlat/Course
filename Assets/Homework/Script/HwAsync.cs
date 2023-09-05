@@ -7,7 +7,7 @@ using UnityEngine;
 public class HwAsync : MonoBehaviour
 {
     private const string url = "https://dotnetfoundation.org";
-    private const string saveFilePath = "SavedData.txt";
+    private const string saveFilePath = "Assets/Homework/Script/SavedData.txt";
 
     async void Start()
     {
@@ -63,4 +63,6 @@ public class HwAsync : MonoBehaviour
             Debug.LogError("Error saving or reading file: " + e.Message);
         }
     }
+
+    
 }

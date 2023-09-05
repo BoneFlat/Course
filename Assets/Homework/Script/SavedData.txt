@@ -683,7 +683,7 @@ window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argume
 </div> </div> <div class="footer-brand"> 
 
 <div >
-    <div ><p><a href="/cdn-cgi/l/email-protection#c3a0acadb7a2a0b783a7acb7ada6b7a5acb6ada7a2b7aaacadedacb1a4">Contact Us</a></p><p>Developed and maintained by <a href="https://www.americaneagle.com/" target="_blank" data-sf-ec-immutable="">americaneagle.com <span class="visuallyhidden">opens in a new window</span></a></p></div>    
+    <div ><p><a href="/cdn-cgi/l/email-protection#7e1d11100a1f1d0a3e1a110a101b0a18110b101a1f0a17111050110c19">Contact Us</a></p><p>Developed and maintained by <a href="https://www.americaneagle.com/" target="_blank" data-sf-ec-immutable="">americaneagle.com <span class="visuallyhidden">opens in a new window</span></a></p></div>    
 </div> </div> </div> </div> </div> </footer> <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/ResourcePackages/Talon/assets/dist/js/search-autocomplete.min.js?package=Talon" type="text/javascript"></script> <script src="/ResourcePackages/Talon/assets/dist/js/all.min.js?package=Talon&amp;v=MTQuMi43OTI1LjM0ODg1" type="text/javascript"></script>  
 
 

@@ -11,7 +11,7 @@ public class NormalProjectile : Projectile
     {
         base.Update();
         transform.position = Vector3.MoveTowards(transform.position, endPoint, Time.deltaTime * speed);
-
+       
         if (transform.position == endPoint)
         {
             Destroy(gameObject);
