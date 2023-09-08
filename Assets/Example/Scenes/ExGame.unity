@@ -216,6 +216,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &322593772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322593774}
+  - component: {fileID: 322593773}
+  - component: {fileID: 322593775}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &322593773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322593772}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2924974087c81d141b9af1500a68aac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &322593774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322593772}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.9008777, y: 2.034874, z: -1.6244545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &322593775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322593772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe61424b48e83b1418d00e4b51b7e24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 10
+  y: 5
 --- !u!1 &395906618
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,13 +420,19 @@ MonoBehaviour:
   _moveSpeed: 5
   _rotationSpeed: 900
   _lockTimeWhenCast: 0
-  _projectile: {fileID: 5913854415412507246, guid: 7c31a9a34b5c2c946be52805849e6e97, type: 3}
+  _projectileBezier: {fileID: 5913854415412507246, guid: 7c31a9a34b5c2c946be52805849e6e97, type: 3}
+  _projectileV: {fileID: 8481787414913993250, guid: e216f7a4157af60408368297854944ac, type: 3}
+  bulletCount: 3
+  bulletSpeed: 2
+  arrowAngle: 30
+  arrowLength: 1
   _firePoint: {fileID: 1037158928}
   _rotateSpeedWhenCast: 0
   _target: {fileID: 1414951802}
   _row: 3
   _oxAngle: 50
   _distanceBetween: 1
+  option: 2
   GameSound: {fileID: 0}
 --- !u!1 &1028581156
 GameObject:
