@@ -10,12 +10,42 @@
 	{
 		[SerializeField] private Image _loadingFill;
 		[SerializeField] private Text  textPercent;
+		[SerializeField] private Text  progress;
+
 		[SerializeField] private float _loadTime = 1f;
 
 		private int  percent = 0;
 		private void Start()
 		{
-			// GameEventHandler.OnLoadGame
+			StartCoroutine(DownloadDataAsync());
+		}
+
+		private IEnumerator DownloadDataAsync()
+		{
+			progress.text = "Downloading data...";
+
+			// Dừng quá trình load ở 60%
+			float targetProgress = 0.6f;
+			float currentProgress = 0f;
+
+			while (currentProgress < targetProgress)
+			{
+				// Giả lập việc tải dữ liệu
+				yield return new WaitForSeconds(0.1f);
+
+				// Tăng tiến trình tải lên
+				currentProgress += 0.1f;
+				percent = Mathf.Clamp((int)(currentProgress * 100), 0, 100);
+				_loadingFill.fillAmount = currentProgress;
+
+				yield return null;
+			}
+
+			// Tải xong
+			progress.text = "Download success!";
+			yield return new WaitForSeconds(1f);
+
+			// Chuyển đến scene ExGame
 			StartCoroutine(LoadSceneAfterWait("ExGame", 1.2f));
 		}
 
