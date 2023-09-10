@@ -23,6 +23,7 @@
 		[SerializeField] private float     _distanceBetween = 1;
 
 		[SerializeField] private Projectile _projectilePrefab;
+		
 
 		private Quaternion _cacheMoveDirection;
 		private Vector3    _cachedInput;
