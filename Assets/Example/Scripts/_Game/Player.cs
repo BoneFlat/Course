@@ -24,10 +24,8 @@
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private int numberBullets = 5;
         private GameObject bullet, vShapeBullet;
-        private float speed = 5f;
+        private float speed = 1.5f;
         private Vector3 controlPoint;
-        private float distance;
-        private float startTime;
 
         private Quaternion _cacheMoveDirection;
         private Vector3 _cachedInput;
@@ -39,10 +37,9 @@
             bullet.SetActive(false);
             check1 = false;
             check2 = false;
+            check3 = false;
 
             controlPoint = transform.position + _target.position + Vector3.up * 10;
-            distance = Vector3.Distance(transform.position, _target.position);
-            startTime = Time.time;
 
             vShapeBullet = VShapeBullet();
         }
@@ -92,21 +89,8 @@
         //	Gizmos.DrawSphere(transform.position, 0.1f);
         //}
 
-        // Tính vị trí trên đường Bézier dựa trên thời gian
-        Vector3 CalculateBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
-        {
-            float u = 1 - t;
-            float tt = t * t;
-            float uu = u * u;
-
-            Vector3 p = uu * p0;
-            p += 2 * u * t * p1;
-            p += tt * p2;
-
-            return p;
-        }
-
         bool check1, check2, check3;
+        float t = 0;
         private void Update()
         {
             //transform.rotation = Quaternion.LookRotation(_target.position - transform.position);
@@ -129,6 +113,7 @@
                     check2 = true;
                     check3 = false;
                     bullet.transform.position = transform.position;
+                    t = 0;
                     bullet.SetActive(true);
                 }
                 else // quy dao 3
@@ -148,16 +133,11 @@
             }
             if (check2)
             {
-                float disCovered = (Time.time - startTime) * speed;
-                float percentDis = disCovered / distance;
+                t += Time.deltaTime;
                 //bullet.transform.position = Vector3.Lerp(Vector3.Lerp(transform.position, controlPoint, percentDis),
                 //                            Vector3.Lerp(controlPoint, _target.position, percentDis),
                 //                            percentDis);
-                bullet.transform.position = CalculateBezierPoint(percentDis, transform.position, controlPoint, _target.position);
-                if (percentDis >= 1)
-                {
-                    check2 = false;
-                }
+                bullet.transform.position = HelperDungtt.CalculateBezierPoint(t, transform.position, controlPoint, _target.position);
             }
             if (check3)
             {
