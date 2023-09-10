@@ -10,5 +10,13 @@ namespace Example
         public static Action OnPlayerDie;
         public static Func<int> OnPlayerTakeDamage;
         public static Action OnEnemyDie;
+
+        public static Action<int, LoadGameProgress> OnLoadGame;
+    }
+
+    public enum LoadGameProgress
+    {
+        OnDownloadData,
+        OnGameReady
     }
 }

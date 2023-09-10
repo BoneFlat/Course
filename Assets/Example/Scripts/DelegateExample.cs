@@ -67,8 +67,10 @@ namespace Example.Scripts
         {
             _myDelegate();
             
-            //add 
+            //assign
             _myDelegate = Method1;
+            
+            //add 
             _myDelegate += Method2;
 
             //remove ref

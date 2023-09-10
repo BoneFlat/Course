@@ -5,5 +5,11 @@
 		- Bay thẳng đến enemy.
 		- Bay theo đường quarad bezier tới enemy với 3 điểm input là player.position, 
 									(player.position + enemy.position) + Vector3.up * 10, enemy.position;
+        - Spawn n viên theo hình chữ V bay thẳng đến enemy (hình mô tả bên dưới, góc và số lương đạn có thể chỉnh được)
+                                
+                                o
+                              o   o
+                            o       o
 
-- Viết script cho camrea di chuyển theo player (CameraFollow);
+- Viết script cho camera di chuyển theo player (CameraFollow);
+- Tìm kiếm Scene Home và modify 
