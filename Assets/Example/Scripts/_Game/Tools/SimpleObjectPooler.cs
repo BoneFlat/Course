@@ -7,14 +7,18 @@ public class SimpleObjectPooler : MonoBehaviour
     public GameObject prefabToPool;
     public int poolSize;
     private List<GameObject> objectPool;
+    private GameObject poolObject;
 
     private void Awake()
     {
         objectPool = new List<GameObject>();
 
+        poolObject = new GameObject();
+        poolObject.name = "Projectile Pool";
+
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(prefabToPool);
+            GameObject obj = Instantiate(prefabToPool, poolObject.transform);
             obj.SetActive(false);
             objectPool.Add(obj);
         }
@@ -30,6 +34,8 @@ public class SimpleObjectPooler : MonoBehaviour
             }
         }
 
-        return null;
+        GameObject newPooledGameObject = Instantiate(prefabToPool, poolObject.transform);
+        objectPool.Add(newPooledGameObject);
+        return newPooledGameObject;
     }
 }

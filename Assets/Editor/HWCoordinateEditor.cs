@@ -16,5 +16,10 @@ public class HWCoordinateEditor : Editor
         {
             buttonComponent.HandleButtonClick();
         }
+
+        if (GUILayout.Button("Bezier Move"))
+        {
+            buttonComponent.HandleBezierMoveClick();
+        }    
     }
 }
