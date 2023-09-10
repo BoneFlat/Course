@@ -372,6 +372,7 @@ MonoBehaviour:
   _row: 3
   _oxAngle: 50
   _distanceBetween: 1
+  GameSound: {fileID: 0}
 --- !u!114 &874438023
 MonoBehaviour:
   m_ObjectHideFlags: 0
