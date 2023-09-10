@@ -33,6 +33,11 @@
 		{
 			
 		}
+
+		public void Stop()
+		{
+			
+		}
 	}
 
 	public class Decor : IdentifierObj
