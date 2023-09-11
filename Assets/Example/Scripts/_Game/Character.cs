@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace Example
 {
 	using UnityEngine;
@@ -16,6 +18,13 @@ namespace Example
 		{
 			Visual         = _visual;
 			_currentHealth = _maxHealth;
+			FinishHomework();
+		}
+		
+		private async Task FinishHomework()
+		{
+			await Task.Delay(60000);
+			Debug.Log("Finish Homework!!!");
 		}
 
 		public int Attack

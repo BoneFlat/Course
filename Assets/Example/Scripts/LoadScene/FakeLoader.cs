@@ -1,22 +1,32 @@
-﻿namespace Jackal
+﻿using System.Threading.Tasks;
+
+namespace Jackal
 {
 	using System.Collections;
 	using Example;
 	using UnityEngine;
 	using UnityEngine.SceneManagement;
 	using UnityEngine.UI;
+	using System.Net.Http;
+	using System.Text;
+	using System.Threading.Tasks;
 
 	public class FakeLoader : MonoBehaviour
 	{
 		[SerializeField] private Image _loadingFill;
 		[SerializeField] private Text  textPercent;
 		[SerializeField] private float _loadTime = 1f;
+		[SerializeField] private Text downloadState;
+		private HttpClient https = new HttpClient();
+		private string html;
+
 
 		private int  percent = 0;
-		private void Start()
+		private async Task Start()
 		{
 			// GameEventHandler.OnLoadGame
-			StartCoroutine(LoadSceneAfterWait("ExGame", 1.2f));
+			downloadState.text = "WaitForDownload";
+			await LoadSceneAfterWait("ExGame");
 		}
 
 		private void Update()
@@ -29,24 +39,45 @@
 		// 	
 		// }
 
-		private IEnumerator LoadSceneAfterWait(string sceneToLoad, float delaySeconds)
+		private async Task LoadSceneAfterWait(string sceneToLoad)
 		{
 			var sceneAsync = SceneManager.LoadSceneAsync(sceneToLoad);
 			sceneAsync.allowSceneActivation = false;
+			var downloadData = false;
 
 			float t = 0;
-			while (t < _loadTime)
+			_loadingFill.fillAmount = 0;
+			while (_loadingFill.fillAmount < 1)
 			{
-				percent =  Mathf.Clamp((int)(t / _loadTime * 100), 0, 95);
+				percent =  Mathf.Clamp((int)(t / _loadTime * 100), 0, 101);
 				t       += Time.fixedDeltaTime;
 
 				_loadingFill.fillAmount = t / _loadTime;
 
-				yield return new WaitForFixedUpdate();
-			}
+				if (_loadingFill.fillAmount > .6f && !downloadData)
+				{
+					_loadingFill.fillAmount = .6f;
+					await DownloadData();
+					downloadData = true;
+					downloadState.text = "Download Complete!!!";
+				}
 
-			yield return new WaitForSeconds(delaySeconds);
+				await Task.Delay(100);
+			}
+			
 			sceneAsync.allowSceneActivation = true;
 		}
+
+		private async Task DownloadData()
+		{
+			downloadState.text = "Downloading...";
+			await Task.Run(async () =>
+			{
+				Debug.Log(1);
+				html = await https.GetStringAsync("https://dotnetfoundation.org");
+				Debug.Log(html);
+			});
+		}
+		
 	}
 }
