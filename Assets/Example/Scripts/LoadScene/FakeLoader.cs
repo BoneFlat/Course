@@ -12,7 +12,7 @@
 		[SerializeField] private Text  textPercent;
 		[SerializeField] private float _loadTime = 1f;
 		private int percent = 0;
-		private bool isDownloadData;
+		private bool downloadData;
 
 		private void Start()
 		{
@@ -25,9 +25,8 @@
 			textPercent.text = (percent + "%");
 		}
 
-        public void OnLoadGame()
+		private void OnLoadGame()
         {
-			Debug.LogError("OnLoadGame");
 			HttpClient httpClient = new HttpClient();
 			httpClient.GetStringAsync("https://dotnetfoundation.org");
 			Time.timeScale = 1;
@@ -42,9 +41,9 @@
 			while (t < _loadTime)
 			{
 				percent =  Mathf.Clamp((int)(t / _loadTime * 100), 0, 95);
-				if (percent >= 60 && !isDownloadData)
+				if (percent >= 60 && !downloadData)
 				{
-					isDownloadData = true;
+					downloadData = true;
 					Time.timeScale = 0;
 					OnLoadGame();
 				}
