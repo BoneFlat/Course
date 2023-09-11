@@ -5,6 +5,7 @@ using UnityEngine;
 public class VShapeProjectileWeapon : Weapon
 {
     public int ProjectilePerShot = 1;
+    public float VAngle = 45;
 
     private const float StandardOffset = 0.1f;
 
@@ -24,7 +25,13 @@ public class VShapeProjectileWeapon : Weapon
                 if(i>1)
                     remapIndex += 2;
 
-                Vector3 offset = new Vector3(StandardOffset * remapIndex,0 , -Mathf.Abs(StandardOffset * remapIndex));
+                float realAngle = (90 - VAngle) / 2 * (remapIndex < 0 ? -1 : 1); 
+
+                Quaternion rotationByVAngle = Quaternion.Euler(0, realAngle, 0);
+
+                Vector3 offset = rotationByVAngle * new Vector3(StandardOffset * remapIndex,0 , -Mathf.Abs(StandardOffset * remapIndex));
+
+                Debug.Log(offset);
 
                 SpawnProjetile(offset);
             }
