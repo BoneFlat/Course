@@ -46,7 +46,7 @@ public class HwCoordinate : MonoBehaviour
         if (isMove)
         {
             t += Time.deltaTime * 1.5f;
-            Vector3 newPos = HelperDungtt.CalculateBezierPoint(t, Vector3.zero, new Vector3(5, 15, 0), new Vector3(10, 0, 0));
+            Vector3 newPos = SangExtension.CalculateBezierPoint(t, Vector3.zero, new Vector3(5, 15, 0), new Vector3(10, 0, 0));
             mySprite.position = newPos;
 
             Vector3 direction = newPos - prevPos;
