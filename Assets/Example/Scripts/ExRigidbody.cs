@@ -14,8 +14,6 @@ namespace Example.Scripts
         private void Start()
         {
             Application.targetFrameRate = 30;
-            
-            
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -30,8 +28,6 @@ namespace Example.Scripts
 
         private void FixedUpdate()
         {
-            var a = MathfHelper.Rotate2DBy(Vector3.right, 30, 1);
-            
             if (_rigidbody2D != null)
             {
                 if (Input.GetAxisRaw("Horizontal") == 0)
