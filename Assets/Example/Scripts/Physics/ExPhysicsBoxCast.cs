@@ -1,7 +1,7 @@
 using Example;
 using UnityEngine;
 
-public class ExPhysics : MonoBehaviour
+public class ExPhysicsBoxCast : MonoBehaviour
 {
     public float     angle;
     public Vector2   size;
