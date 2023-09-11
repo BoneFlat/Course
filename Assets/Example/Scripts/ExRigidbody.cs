@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Example.Scripts
 {
+    [DefaultExecutionOrder(1)]
+    // https://docs.unity3d.com/Manual/CollidersOverview.html
     public class ExRigidbody : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rigidbody2D;
@@ -11,7 +13,9 @@ namespace Example.Scripts
 
         private void Start()
         {
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = 30;
+            
+            
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -26,6 +30,8 @@ namespace Example.Scripts
 
         private void FixedUpdate()
         {
+            var a = MathfHelper.Rotate2DBy(Vector3.right, 30, 1);
+            
             if (_rigidbody2D != null)
             {
                 if (Input.GetAxisRaw("Horizontal") == 0)
@@ -33,11 +39,13 @@ namespace Example.Scripts
                 
                 switch (_movingMode)
                 {
+                    case MovingMode.AddForce:
+                        _rigidbody2D.AddForce(Input.GetAxisRaw("Horizontal") * speed * Vector2.right);
+                        break;
                     case MovingMode.Velocity:
                         _rigidbody2D.velocity =
                             Input.GetAxisRaw("Horizontal") * speed * Vector2.right ;
                         
-                        Debug.Log(_rigidbody2D.velocity);
                         break;
 
                     case MovingMode.MovePosition:
@@ -56,6 +64,7 @@ namespace Example.Scripts
 
         public enum MovingMode
         {
+            AddForce,
             Velocity,
             MovePosition,
             Transform

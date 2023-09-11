@@ -3,10 +3,12 @@ using UnityEngine;
 
 namespace Example.Scripts
 {
+    [DefaultExecutionOrder(10000)]
     public class CameraFollow : MonoBehaviour
     {
-        [SerializeField] private Transform target;
-        [SerializeField] private float _smooth = 0.2f;
+        [SerializeField] private Transform  target;
+        [SerializeField] private float      _smooth = 0.2f;
+        [SerializeField] private UpdateMode _updateMode;
 
         private Vector3 _offset;
 
@@ -16,11 +18,34 @@ namespace Example.Scripts
             gameObject.layer = LayerMask.NameToLayer("Default");
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            transform.position = Vector3.Lerp(transform.position,target.position - _offset, _smooth);
+            if (_updateMode == UpdateMode.Update)
+            {
+                transform.position = target.position - _offset;
+            } else if (_updateMode == UpdateMode.LerpUpdate)
+            {
+                transform.position = Vector3.Lerp(transform.position,target.position - _offset, _smooth);
+            }
         }
 
+        private void FixedUpdate()
+        {
+            if (_updateMode == UpdateMode.FixedUpdate)
+            {
+                transform.position = target.position - _offset;
+            } else if (_updateMode == UpdateMode.LerpFixedUpdate)
+            {
+                transform.position = Vector3.Lerp(transform.position,target.position - _offset, _smooth);
+            }
+        }
         
+        public enum UpdateMode
+        {
+            FixedUpdate,
+            Update,
+            LerpFixedUpdate,
+            LerpUpdate
+        }
     }
 }
