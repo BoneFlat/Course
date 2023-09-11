@@ -1,0 +1,686 @@
+ <!DOCTYPE html> <html class="no-js" lang="en"> <head> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> <meta charset="utf-8" /> <title>
+	.NET Foundation | .NET Foundation
+</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"> <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png"> <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png"> <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"> <link rel="icon" type="image/png" href="/assets/icons/favicon.png"> <link rel="manifest" href="/assets/icons/manifest.json"> <link rel="shortcut icon" type="image/png" href="/assets/icons/favicon.ico" /> <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#68217a"> <meta name="msapplication-config" content="/assets/icons/browserconfig.xml" /> <meta name="msapplication-TileColor" content="#68217a"> <meta name="theme-color" content="#68217a"> <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"> <link rel="preload" as="style" href="/ResourcePackages/Talon/assets/dist/css/main.min.css?package=Talon&amp;v=MTQuMi43OTI1LjM0ODg1"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"> <link href="/ResourcePackages/Talon/assets/dist/css/main.min.css?package=Talon&amp;v=MTQuMi43OTI1LjM0ODg1" rel="stylesheet" type="text/css" /><link href="/ResourcePackages/Talon/assets/dist/css/components/hero/hero.min.css?package=Talon&amp;v=MTQuMi43OTI1LjM0ODg1" rel="stylesheet" type="text/css" /><link href="/ResourcePackages/Talon/assets/dist/css/components/cta/cta.min.css?package=Talon&amp;v=MTQuMi43OTI1LjM0ODg1" rel="stylesheet" type="text/css" /><link href="/ResourcePackages/Talon/assets/dist/css/components/cta/banner.min.css?package=Talon&amp;v=MTQuMi43OTI1LjM0ODg1" rel="stylesheet" type="text/css" /><link href="/ResourcePackages/Talon/assets/dist/css/components/people/person.min.css?package=Talon&amp;v=MTQuMi43OTI1LjM0ODg1" rel="stylesheet" type="text/css" /><link href="/ResourcePackages/Talon/assets/dist/css/components/cta/linked-image.min.css?package=Talon&amp;v=MTQuMi43OTI1LjM0ODg1" rel="stylesheet" type="text/css" /> <script>(function () { "use strict"; var el = document.getElementsByTagName('html')[0], nojsClass = "no-js", jsClass = "js"; if (el.classList) { el.classList.remove(nojsClass); el.classList.add(jsClass); } else { el.className = el.className.replace(new RegExp('(^|\\b)' + nojsClass.split(' ').join('|') + '(\\b|$)', 'gi'), ' '); el.className += ' ' + jsClass; } }());</script> <meta property="og:title" content=".NET Foundation" /><meta property="og:url" content="https://dotnetfoundation.org" /><meta property="og:type" content="website" /><meta property="og:site_name" content="Default" /><style type="text/css" media="all">.main-nav-wrap {
+  z-index:99;
+}</style><link href="/docs/default-source/assets/prism2e1619e10c9f43b4b318600a836419bd.css" media="all" rel="stylesheet" type="text/css" /><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-ZVSXFNK3ZJ"></script><script type="text/javascript">
+window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-ZVSXFNK3ZJ'); 
+</script><link rel="canonical" href="https://dotnetfoundation.org" /></head> <body> 
+
+
+  <header id="site-header" class="site-header" role="banner"> <a href="#site-main" class="skip-link">Skip to Main Content</a> 
+<div class="container">
+    <div class="header-grid">
+        <button type="button" class="main-nav-toggle" data-toggle data-target="mainNav" data-html-class="header-toggle-active" aria-label="Toggle Main Navigation">
+            <span aria-hidden="true"></span>
+        </button>
+    
+        <div id="siteSearch" class="header-search">
+            <div id="Header_TAE6B59B9001_Col00" class="sf_colsIn" data-sf-element="Search" data-placeholder-label="Search">
+
+
+<div class="site-search">
+    <div class="site-search__controls" role="search">
+        <input type="search" title="Search input" placeholder="Search" id="ea740bab-a542-45e4-92ad-6776f6bd42fa" class="site-search__input" value="" aria-autocomplete="both" aria-describedby='SearchInfo-1'/>
+        <button type="button" class="site-search__submit" id="614615c0-0cbc-4b4e-874c-d7378012677d" >
+            <span class="visuallyhidden">Search</span>
+            <svg aria-hidden="true">
+                <use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#search">
+                </use>
+            </svg>
+        </button>
+        <span id='SearchInfo-1' aria-hidden="true" hidden>When autocomplete results are available use up and down arrows to review and enter to select.</span>
+        <div data-sf-role="autocomplete" class="search-autocomplete" aria-live="polite"></div>
+    </div>
+
+	<input type="hidden" data-sf-role="resultsUrl" value="/search-results" />
+    <input type="hidden" data-sf-role="indexCatalogue" value="site-search" />
+    <input type="hidden" data-sf-role="wordsMode" value="AllWords" />
+    <input type="hidden" data-sf-role="disableSuggestions" value='true' />
+    <input type="hidden" data-sf-role="minSuggestionLength" value="3" />
+    <input type="hidden" data-sf-role="suggestionFields" value="Title,Content" />
+    <input type="hidden" data-sf-role="language" />
+    <input type="hidden" data-sf-role="suggestionsRoute" value="/restapi/search/suggestions" />
+    <input type="hidden" data-sf-role="searchTextBoxId" value='#ea740bab-a542-45e4-92ad-6776f6bd42fa' />
+    <input type="hidden" data-sf-role="searchButtonId" value='#614615c0-0cbc-4b4e-874c-d7378012677d' />
+</div>
+
+
+
+</div>
+        </div>
+        <div class="header-logo-nav">
+            <div id="Header_TAE6B59B9001_Col01" class="sf_colsIn header-logo" data-sf-element="Logo" data-placeholder-label="Logo">
+<div >
+    <div ><a href="/home"><svg aria-hidden="true"><use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#site-logo"></use></svg>
+ <span class="visuallyhidden">.NET Foundation</span></a></div>    
+</div></div>
+            <div id="mainNav" class="main-nav-wrap">
+                <div id="Header_TAE6B59B9001_Col02" class="sf_colsIn header-nav" data-sf-element="Nav" data-placeholder-label="Nav">
+
+<!--googleoff: all-->
+
+<div class="visually-hidden focusable" tabindex="0">
+    <p>The following navigation has top level toggles that can be engaged with by focusing on them and pressing the enter key. Their respective sub-navigation can then be navigated through with the tab key. Upon reaching the last node in the sub-navigation the next top level node will be focused if there is one.</p>
+</div>
+
+<!--googleon: all-->
+
+<nav class="main-nav" aria-label="Main Navigation">
+    <ul class="main-nav__menu" id='navbar-1'>
+    <li class="main-nav__item ">
+            <button type="button" class="main-nav__toggle text-bold" data-toggle data-target="sub-6a32efe0-1f28-4c71-9a70-c5ed94536f17">
+                Projects
+            </button>
+            <ul id="sub-6a32efe0-1f28-4c71-9a70-c5ed94536f17" class="main-nav__sub">
+                        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/projects/current-projects" target="_self">
+                    Projects
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/projects/benefits" target="_self">
+                    Project Benefits
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/projects/submit-a-project" target="_self">
+                    Submit a Project
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/projects/project-spotlight" target="_self">
+                    Project Spotlight
+                </a>
+        </li>
+
+            </ul>
+    </li>
+    <li class="main-nav__item ">
+            <button type="button" class="main-nav__toggle text-bold" data-toggle data-target="sub-fe3972fa-e36f-4fa3-80a6-b122fce6e7c7">
+                Membership
+            </button>
+            <ul id="sub-fe3972fa-e36f-4fa3-80a6-b122fce6e7c7" class="main-nav__sub">
+                        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/membership/become-a-member" target="_self">
+                    Become a Member
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/membership/participation-types" target="_self">
+                    Participation Types
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/membership/corporate-sponsorship" target="_self">
+                    Corporate Sponsorship
+                </a>
+        </li>
+
+            </ul>
+    </li>
+    <li class="main-nav__item ">
+            <button type="button" class="main-nav__toggle text-bold" data-toggle data-target="sub-649c61f5-f199-4b4f-8bbb-056088f54a45">
+                Community
+            </button>
+            <ul id="sub-649c61f5-f199-4b4f-8bbb-056088f54a45" class="main-nav__sub">
+                        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/community/.net-meetups" target="_self">
+                    .NET Meetups
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/community/resources" target="_self">
+                    Resources
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/community/survey" target="_self">
+                    Survey
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/community/speakers" target="_self">
+                    Speakers
+                </a>
+        </li>
+
+            </ul>
+    </li>
+    <li class="main-nav__item ">
+            <button type="button" class="main-nav__toggle text-bold" data-toggle data-target="sub-f767323f-780c-4595-873d-079be7eb8543">
+                Learn
+            </button>
+            <ul id="sub-f767323f-780c-4595-873d-079be7eb8543" class="main-nav__sub">
+                        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/learn/education" target="_self">
+                    Learning Resources
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/learn/join-education-committee" target="_self">
+                    Join Education Committee
+                </a>
+        </li>
+
+            </ul>
+    </li>
+    <li class="main-nav__item ">
+            <button type="button" class="main-nav__toggle text-bold" data-toggle data-target="sub-94e36ff1-f053-435d-8880-7656fc824035">
+                Blog
+            </button>
+            <ul id="sub-94e36ff1-f053-435d-8880-7656fc824035" class="main-nav__sub">
+                        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/news-events/latest-news" target="_self">
+                    Blog
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/news-events/newsletter" target="_blank">
+                    Sign Up for Newsletter
+                </a>
+        </li>
+
+            </ul>
+    </li>
+    <li class="main-nav__item ">
+            <button type="button" class="main-nav__toggle text-bold" data-toggle data-target="sub-c12987ca-9e91-43ac-a333-2d42435e9223">
+                About
+            </button>
+            <ul id="sub-c12987ca-9e91-43ac-a333-2d42435e9223" class="main-nav__sub">
+                        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/about/who-we-are" target="_self">
+                    Who We Are
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/about/budget" target="_self">
+                    Budget
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/about/policies" target="_self">
+                    Policies
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/about/board-of-directors" target="_self">
+                    Board of Directors
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/about/committees" target="_self">
+                    Committees
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/about/faq" target="_self">
+                    FAQ
+                </a>
+        </li>
+
+            </ul>
+    </li>
+    <li class="main-nav__item ">
+            <button type="button" class="main-nav__toggle text-bold" data-toggle data-target="sub-b4ab7b3f-488a-4d71-ba02-89422ebb339a">
+                Socialize
+            </button>
+            <ul id="sub-b4ab7b3f-488a-4d71-ba02-89422ebb339a" class="main-nav__sub">
+                        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/socialize/discord" target="_blank">
+                    Discord
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/socialize/twitter" target="_blank">
+                    Twitter
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/socialize/facebook" target="_blank">
+                    Facebook
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/socialize/linkedin" target="_blank">
+                    LinkedIn
+                </a>
+        </li>
+        <li class="main-nav__item ">
+                <a class="main-nav__link text-semibold" href="/contact-us/youtube" target="_blank">
+                    YouTube
+                </a>
+        </li>
+
+            </ul>
+    </li>
+    </ul>
+</nav>
+
+
+
+
+
+
+</div>
+            </div>
+        </div>
+    
+        <button type="button" class="site-search-toggle" data-toggle data-target="siteSearch" data-html-class="header-toggle-active" aria-label="Toggle Site Search">
+            <svg aria-hidden="true">
+                <use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#search"></use>
+            </svg>
+        </button>
+    
+        <div id="Header_TAE6B59B9001_Col03" class="sf_colsIn header-account" data-sf-element="Account" data-placeholder-label="Account"></div>
+    </div>
+</div> </header> <main id="site-main" class="site-main" tabindex="-1" role="main"> 
+
+
+
+    <div class="hero">
+            <div class="hero__bg" aria-hidden="true" style="background-image:url('/images/default-source/call-to-action-images/hero-image-(1)23963730-dfd4-47cc-9435-1b6264dde6a1.png?sfvrsn=cfc51c3a_1')"></div>
+
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title m-0"
+                    >Independent.<br>Innovative. <br>Always open source.
+                </h1>
+
+                    <div class="hero_desc mt-3 mg-xl-5 clearfix">
+                        <div>The&nbsp;.NET&nbsp;Foundation&nbsp;is&nbsp;an&nbsp;independent,&nbsp;non-profit&nbsp;organization&nbsp;established&nbsp;to&nbsp;support&nbsp;an&nbsp;innovative,&nbsp;commercially&nbsp;friendly,&nbsp;open-source&nbsp;ecosystem&nbsp;around&nbsp;the&nbsp;.NET&nbsp;platform.</div>
+                    </div>
+
+                    <a href="/about/who-we-are" class="button button--hollow-white mt-4 mt-xl-8" >
+                        Read More
+                    </a>
+            </div>
+        </div>
+    </div>
+<div class="row" data-sf-element="Row">
+    <div id="Main_C028_Col00" class="sf_colsIn col-lg-12" data-sf-element="Column 1" data-placeholder-label="Column 1">
+    </div>
+</div>
+<div id="Main_C004_Col00" class="sf_colsIn light-grey-bg pb-12 pb-lg-19 featured-content" data-sf-element="Light Grey Background" data-placeholder-label="Light Grey Background"><div id="Main_C005_Col00" class="sf_colsIn container" data-sf-element="Container" data-placeholder-label="Container"><div class="row" data-sf-element="Row">
+    <div id="Main_C006_Col00" class="sf_colsIn col-lg-4 featured-content__content" data-sf-element="Column 1" data-placeholder-label="Column 1"><div class="row" data-sf-element="Row">
+    <div id="Main_C009_Col00" class="sf_colsIn col-lg-6" data-sf-element="Column 1" data-placeholder-label="Column 1">
+    </div>
+    <div id="Main_C009_Col01" class="sf_colsIn col-lg-6 ps-lg-0" data-sf-element="Column 2" data-placeholder-label="Column 2">
+    </div>
+</div>
+
+    </div>
+    <div id="Main_C006_Col01" class="sf_colsIn col-lg-7 offest-lg-1 featured-content__media" data-sf-element="Column 2" data-placeholder-label="Column 2">
+    </div>
+</div>
+
+</div>
+</div>
+<div class="text-center mb-3 mb-lg-12" >
+    <div ><h2>How we support the community?</h2><p>We need you! Community involvement is what makes the .NET Foundation such a resounding success.</p></div>    
+</div><div id="Main_C001_Col00" class="sf_colsIn container py-8 py-lg-20" data-sf-element="Container" data-placeholder-label="Container">
+
+
+<div class="grid-1x1 grid-md-2x2 grid-lg-3x3 cta-list">
+        <div class="cta">
+                <div class="cta__media">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img w-100 cta__img"   data-src="/images/default-source/call-to-action-images/programmer-developing.png?sfvrsn=9021205a_1"/><noscript><img src="/images/default-source/call-to-action-images/programmer-developing.png?sfvrsn=9021205a_1" alt="" class="w-100 cta__img"  /></noscript>
+                </div>
+
+            <div class="cta__content">
+                <h3 class="cta__title m-0">
+                    Open Source Projects
+                </h3>
+
+                    <div class="cta__desc clearfix">
+                        The .NET Foundation provides several services to support the open source projects in our community and help them grow.
+                    </div>
+
+            </div>
+        </div>
+        <div class="cta">
+                <div class="cta__media">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img w-100 cta__img"   data-src="/images/default-source/call-to-action-images/company-workers.png?sfvrsn=9a8d960c_1"/><noscript><img src="/images/default-source/call-to-action-images/company-workers.png?sfvrsn=9a8d960c_1" alt="" class="w-100 cta__img"  /></noscript>
+                </div>
+
+            <div class="cta__content">
+                <h3 class="cta__title m-0">
+                    Community
+                </h3>
+
+                    <div class="cta__desc clearfix">
+                        We work not only with Microsoft, but with the broader industry to increase exposure of .NET's capabilities. All our resources...
+                    </div>
+
+                    <a href="/community" class="cta__link text-bold" >
+                        Learn More
+                        <svg class="cta__link-icon" aria-hidden="true">
+                            <use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#right-arrow"></use>
+                        </svg>
+                    </a>
+            </div>
+        </div>
+        <div class="cta">
+                <div class="cta__media">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img w-100 cta__img"   data-src="/images/default-source/call-to-action-images/design-screens.png?sfvrsn=91be6d00_1"/><noscript><img src="/images/default-source/call-to-action-images/design-screens.png?sfvrsn=91be6d00_1" alt="" class="w-100 cta__img"  /></noscript>
+                </div>
+
+            <div class="cta__content">
+                <h3 class="cta__title m-0">
+                    Resources
+                </h3>
+
+                    <div class="cta__desc clearfix">
+                        The foundation also lists a number of presentations, workshops, e-books and tutorials from the community.
+                    </div>
+
+                    <a href="/community/resources" class="cta__link text-bold" >
+                        Learn More
+                        <svg class="cta__link-icon" aria-hidden="true">
+                            <use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#right-arrow"></use>
+                        </svg>
+                    </a>
+            </div>
+        </div>
+</div>
+</div>
+
+
+
+    <div class="banner">
+<div class="lazy-bg banner__media" data-src="/images/default-source/call-to-action-images/benefits-banner-image.png?sfvrsn=caf8b501_1" aria-hidden="true"></div><noscript><div class"lazy-bg banner__media" style="background-image:url(/images/default-source/call-to-action-images/benefits-banner-image.png?sfvrsn=caf8b501_1)" aria-hidden="true"></div></noscript>
+        <div class="container">
+            <div class="banner__content">
+                <h2 class="banner__title m-0">
+                    The Benefits of Membership
+                </h2>
+
+                    <div class="banner__desc clearfix">
+                        <p>The .NET ecosystem is constantly evolving and growing, and we've seen incredible innovation in the last few years with more to come. If you are passionate about the .NET ecosystem, then you should consider becoming a member.</p>
+<p>The way we see it, there are four major reasons to become a member.</p>
+<div class="stat-grid">
+    <div class="stat"><strong>100K+<br><span>Contributions</span></strong></div>
+    <div class="stat"><strong>3.7K<br><span>Companies</span></strong></div>
+    <div class="stat"><strong>556<br><span>Active Projects</span></strong></div>
+    <div class="stat"><strong>59,275<br><span>Resources</span></strong></div>
+</div>
+                    </div>
+
+                    <a href="/membership/become-a-member" class="banner__link button button--hollow-white" >
+                        Become a Member
+                    </a>
+            </div>
+        </div>
+    </div>
+<div id="Main_C013_Col00" class="sf_colsIn container mt-5 mb-8 my-lg-20" data-sf-element="Container" data-placeholder-label="Container">
+
+
+<div>
+    <ul class="list-style-none p-0 m-0 people-list people-list--featured">
+            <li class="person person--featured">
+            <div class="person__badge">
+                Featured Speaker
+            </div>
+        <div class="person__body">
+            <div class="person__media">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Samuel Adranyi" class="lazy-img person__img"   data-src="https://github.com/sadranyi.png"/><noscript><img src="https://github.com/sadranyi.png" alt="Samuel Adranyi" class="person__img"  /></noscript>
+            </div>
+
+            <div class="person__content">
+                <h3 class="person__name">
+                    <a href="https://dotnetfoundation.org/community/bio/samuel-adranyi" class="person__name-link">
+                        Samuel Adranyi
+                    </a>
+                </h3>
+
+                    <div class="person__location text-bold mt-2 mb-lg-0">
+                        <svg class="icon me-2" aria-hidden="true">
+                            <use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#pin"></use>
+                        </svg>
+                        <span>
+                            Accra, Ghana
+                        </span>
+                    </div>
+            </div>
+        </div>
+
+            <div class="person__desc mt-3 clearfix">
+                Software Engineer, Blogger-Speaker-Streamer, Technology Advocate, Community Lead, AI, and IoT enthusiast making the world a better place through technology, community engagement, and knowledge sharing.
+
+            </div>
+    </li>
+
+
+    <li class="person">
+        <div class="person__body">
+            <div class="person__media">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Matthew D. Groves" class="lazy-img person__img"   data-src="https://github.com/mgroves.png"/><noscript><img src="https://github.com/mgroves.png" alt="Matthew D. Groves" class="person__img"  /></noscript>
+            </div>
+
+            <div class="person__content">
+                <h3 class="person__name">
+                    <a href="https://dotnetfoundation.org/community/bio/matthew-d-groves" class="person__name-link">
+                        Matthew D. Groves
+                    </a>
+                </h3>
+
+                    <div class="person__location text-bold mt-2 mb-lg-0">
+                        <svg class="icon me-2" aria-hidden="true">
+                            <use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#pin"></use>
+                        </svg>
+                        <span>
+                            Delaware, United States
+                        </span>
+                    </div>
+            </div>
+        </div>
+
+    </li>
+    <li class="person">
+        <div class="person__body">
+            <div class="person__media">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Layla Porter" class="lazy-img person__img"   data-src="https://github.com/layla-p.png"/><noscript><img src="https://github.com/layla-p.png" alt="Layla Porter" class="person__img"  /></noscript>
+            </div>
+
+            <div class="person__content">
+                <h3 class="person__name">
+                    <a href="https://dotnetfoundation.org/community/bio/layla-porter" class="person__name-link">
+                        Layla Porter
+                    </a>
+                </h3>
+
+                    <div class="person__location text-bold mt-2 mb-lg-0">
+                        <svg class="icon me-2" aria-hidden="true">
+                            <use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#pin"></use>
+                        </svg>
+                        <span>
+                            United Kingdom
+                        </span>
+                    </div>
+            </div>
+        </div>
+
+    </li>
+    <li class="person">
+        <div class="person__body">
+            <div class="person__media">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Sean Killeen" class="lazy-img person__img"   data-src="Https://GitHub.com/SeanKilleen.png"/><noscript><img src="Https://GitHub.com/SeanKilleen.png" alt="Sean Killeen" class="person__img"  /></noscript>
+            </div>
+
+            <div class="person__content">
+                <h3 class="person__name">
+                    <a href="https://dotnetfoundation.org/community/bio/sean-killeen" class="person__name-link">
+                        Sean Killeen
+                    </a>
+                </h3>
+
+                    <div class="person__location text-bold mt-2 mb-lg-0">
+                        <svg class="icon me-2" aria-hidden="true">
+                            <use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#pin"></use>
+                        </svg>
+                        <span>
+                            Arlington, United States
+                        </span>
+                    </div>
+            </div>
+        </div>
+
+    </li>
+    <li class="person">
+        <div class="person__body">
+            <div class="person__media">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Aneesh Gopalakrishnan" class="lazy-img person__img"   data-src="/images/default-source/board/aneesh-gopalakrishnan.png?sfvrsn=8a00a9cd_1"/><noscript><img src="/images/default-source/board/aneesh-gopalakrishnan.png?sfvrsn=8a00a9cd_1" alt="Aneesh Gopalakrishnan" class="person__img"  /></noscript>
+            </div>
+
+            <div class="person__content">
+                <h3 class="person__name">
+                    <a href="https://dotnetfoundation.org/community/bio/aneesh-gopalakrishnan" class="person__name-link">
+                        Aneesh Gopalakrishnan
+                    </a>
+                </h3>
+
+                    <div class="person__location text-bold mt-2 mb-lg-0">
+                        <svg class="icon me-2" aria-hidden="true">
+                            <use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#pin"></use>
+                        </svg>
+                        <span>
+                            New York, United States
+                        </span>
+                    </div>
+            </div>
+        </div>
+
+    </li>
+    </ul>
+</div>
+
+
+</div>
+<div id="Main_C017_Col00" class="sf_colsIn container mt-5 mb-2 mb-lg-8" data-sf-element="Container" data-placeholder-label="Container">
+<div class="text-center mb-6" >
+    <div ><h2>Our Sponsors</h2></div>    
+</div>
+</div>
+
+
+
+<div class="linked-images">
+            <div class="linked-image">
+                    <a href="https://aws.amazon.com/" class="linked-image__link"  target=_blank>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img linked-image__img"   data-src="/images/default-source/sponsors/aws.png?sfvrsn=13cfc944_1"/><noscript><img src="/images/default-source/sponsors/aws.png?sfvrsn=13cfc944_1" alt="" class="linked-image__img"  /></noscript>
+                    </a>
+            </div>
+            <div class="linked-image">
+                    <a href="https://www.avanade.com/" class="linked-image__link"  target=_blank>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img linked-image__img"   data-src="/images/default-source/board/avanade.png?sfvrsn=72a90082_5"/><noscript><img src="/images/default-source/board/avanade.png?sfvrsn=72a90082_5" alt="" class="linked-image__img"  /></noscript>
+                    </a>
+            </div>
+            <div class="linked-image">
+                    <a href="https://www.digicert.com/" class="linked-image__link"  target=_blank>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img linked-image__img"   data-src="/images/default-source/sponsors/digicert.png?sfvrsn=80ff4d98_1"/><noscript><img src="/images/default-source/sponsors/digicert.png?sfvrsn=80ff4d98_1" alt="" class="linked-image__img"  /></noscript>
+                    </a>
+            </div>
+            <div class="linked-image">
+                    <a href="https://www.endjin.com/" class="linked-image__link"  target=_blank>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img linked-image__img"   data-src="/images/default-source/sponsors/endjin.png?sfvrsn=a841ffd3_1"/><noscript><img src="/images/default-source/sponsors/endjin.png?sfvrsn=a841ffd3_1" alt="" class="linked-image__img"  /></noscript>
+                    </a>
+            </div>
+            <div class="linked-image">
+                    <a href="https://www.microsoft.com/" class="linked-image__link"  target=_blank>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img linked-image__img"   data-src="/images/default-source/sponsors/microsoft.png?sfvrsn=97831e4f_1"/><noscript><img src="/images/default-source/sponsors/microsoft.png?sfvrsn=97831e4f_1" alt="" class="linked-image__img"  /></noscript>
+                    </a>
+            </div>
+            <div class="linked-image">
+                    <a href="https://www.telerik.com/open" class="linked-image__link"  target=_blank>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img linked-image__img"   data-src="/images/default-source/sponsors/progress-telerik.png?sfvrsn=aafb24df_1"/><noscript><img src="/images/default-source/sponsors/progress-telerik.png?sfvrsn=aafb24df_1" alt="" class="linked-image__img"  /></noscript>
+                    </a>
+            </div>
+            <div class="linked-image">
+                    <a href="https://tanzu.vmware.com/" class="linked-image__link"  target=_blank>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img linked-image__img"   data-src="/images/default-source/sponsors/vmware.png?sfvrsn=106371cf_1"/><noscript><img src="/images/default-source/sponsors/vmware.png?sfvrsn=106371cf_1" alt="" class="linked-image__img"  /></noscript>
+                    </a>
+            </div>
+            <div class="linked-image">
+                    <a href="https://volosoft.com/" class="linked-image__link"  target=_blank>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" class="lazy-img linked-image__img"   data-src="/images/default-source/sponsors/volosoft.png?sfvrsn=3a4f9b52_1"/><noscript><img src="/images/default-source/sponsors/volosoft.png?sfvrsn=3a4f9b52_1" alt="" class="linked-image__img"  /></noscript>
+                    </a>
+            </div>
+</div>
+
+<div id="Main_C021_Col00" class="sf_colsIn container my-8" data-sf-element="Container" data-placeholder-label="Container">
+<div class="text-center" >
+    <div ><a href="/membership/corporate-sponsorship" class="button button--hollow-grey display-block display-lg-inline-block">View all</a></div>    
+</div>
+</div>
+ </main> <footer id="site-footer" class="site-footer" role="contentinfo"> 
+<div class="container">
+    <div class="footer-top mb-8 mb-lg-16">
+        <div class="footer-top__grid">
+            <div class="footer-logo-newsletter">
+                <div id="Footer_TAE6B59B9002_Col00" class="sf_colsIn footer-logo" data-sf-element="Logo" data-placeholder-label="Logo">
+<div class="mb-5" >
+    <div ><img src="/images/default-source/default-album/logo-white.png?sfvrsn=6cc6ad52_1" alt=".NET Foundation"></div>    
+</div></div>
+                <div id="Footer_TAE6B59B9002_Col01" class="sf_colsIn footer-newsletter" data-sf-element="Newsletter" data-placeholder-label="Newsletter">
+<div >
+    <div ><h2 class="h4 text-bold">.NET Foundation Newsletter Subscription</h2><p><a href="https://eepurl.com/dhL_qb" target="_blank" data-sf-ec-immutable="">Sign up</a> for the .NET Foundation newsletter and stay ahead of the game.</p></div>    
+</div></div>
+            </div>
+            <div id="Footer_TAE6B59B9002_Col02" class="sf_colsIn footer-links" data-sf-element="Links" data-placeholder-label="Links">
+<nav>
+    
+
+    <ul class="list-style-none m-0 p-0">
+     <li class="nav-item mb-3">
+        <a class="" href="/membership" target="_self">Membership</a>
+
+    </li>
+     <li class="nav-item mb-3">
+        <a class="" href="/community" target="_self">Community</a>
+
+    </li>
+     <li class="nav-item mb-3">
+        <a class="" href="/news-events" target="_self">Blog</a>
+
+    </li>
+    </ul>
+</nav>
+
+
+
+
+</div>
+            <div id="Footer_TAE6B59B9002_Col03" class="sf_colsIn footer-socials" data-sf-element="Socials" data-placeholder-label="Socials">
+<div class="mb-4" >
+    <div ><h2 class="h4 text-bold mb-0">Follow us</h2></div>    
+</div>
+<div >
+    <div ><ul class="socials"><li><a href="https://github.com/dotnet-foundation" target="_blank" data-sf-ec-immutable=""><svg aria-hidden="true"><use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#github"></use></svg>
+ <span class="visuallyhidden">Github opens in a new window</span>
+ </a>
+ </li><li><a href="https://twitter.com/dotnetfdn" target="_blank" data-sf-ec-immutable=""><svg aria-hidden="true"><use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#twitter"></use></svg>
+ <span class="visuallyhidden">Twitter opens in a new window</span>
+ </a>
+ </li><li><a href="https://www.youtube.com/channel/UCiaZbznpWV1o-KLxj8zqR6A" target="_blank" data-sf-ec-immutable=""><svg aria-hidden="true"><use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#youtube"></use></svg>
+ <span class="visuallyhidden">YouTube opens in a new window</span>
+ </a>
+ </li><li><a href="https://www.facebook.com/dotnetfoundation/" target="_blank" data-sf-ec-immutable=""><svg aria-hidden="true"><use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#facebook"></use></svg>
+ <span class="visuallyhidden">Facebook opens in a new window</span>
+ </a>
+ </li><li><a href="https://www.linkedin.com/company/dotnetfoundation/" target="_blank" data-sf-ec-immutable=""><svg aria-hidden="true"><use href="/ResourcePackages/Talon/assets/dist/sprites/icons.svg#linkedin"></use></svg>
+ <span class="visuallyhidden">Linkedin opens in a new window</span></a></li><li><a href="https://dotnetfoundation.org/feeds/blog" target="_blank" data-sf-ec-immutable=""><img width="16" height="16" style="color: rgba(255, 255, 255, 1)" aria-hidden="true" src="/docs/default-source/assets/rss.svg" data-sf-ec-immutable=""><span class="visuallyhidden">RSS opens in a new window</span></a></li></ul></div>    
+</div></div>
+        </div>
+    </div>
+</div> <div class="footer-bottom"> <div class="container"> <div class="footer-bottom__grid"> <div class="footer-copyright">
+                        &copy; 2023  
+
+<div >
+    <div >.NET Foundation and Contributors.</div>    
+</div> </div> <div class="footer-bottom__links"> 
+
+<div >
+    <div ><ul><li><a href="/about/policies/privacy-policy">Privacy Policy</a></li><li><a href="/about/policies/code-of-conduct">Code of Conduct</a></li><li><a href="/about/policies/.net-foundation-bylaws">Bylaws</a></li><li><a href="/about/policies/.net-foundation-membership-policy">Membership Policy</a><br></li></ul></div>    
+</div> </div> <div class="footer-brand"> 
+
+<div >
+    <div ><p><a href="/cdn-cgi/l/email-protection#a0c3cfced4c1c3d4e0c4cfd4cec5d4c6cfd5cec4c1d4c9cfce8ecfd2c7">Contact Us</a></p><p>Developed and maintained by <a href="https://www.americaneagle.com/" target="_blank" data-sf-ec-immutable="">americaneagle.com <span class="visuallyhidden">opens in a new window</span></a></p></d
