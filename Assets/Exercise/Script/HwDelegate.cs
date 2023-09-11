@@ -1,18 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HwDelegate : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    delegate int MyDelegate(int x, int y);
+
+    int AddNumbers(int x, int y)
     {
-        
+        return x + y;
     }
 
-    // Update is called once per frame
-    void Update()
+    int MultiplyNumbers(int x, int y)
     {
-        
+        return x * y;
+    }
+
+    int DivideNumbers(int x, int y)
+    {
+        return x / y;
+    }
+
+    private void Start()
+    {
+        MyDelegate delegateAdd = AddNumbers;
+        MyDelegate delegateMultiply = MultiplyNumbers;
+        MyDelegate delegateDivide = DivideNumbers;
+
+        int addResult = delegateAdd(1, 2);
+        int multiplyResult = delegateMultiply(3, 4);
+        int divideResult = delegateDivide(7, 3);
+        Debug.LogError("Add result: " + addResult);
+        Debug.LogError("Multiply result: " + multiplyResult);
+        Debug.LogError("Divide result: " + divideResult);
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace Jackal
 {
 	using System.Collections;
-	using Example;
+    using System.Net.Http;
 	using UnityEngine;
 	using UnityEngine.SceneManagement;
 	using UnityEngine.UI;
@@ -11,8 +11,9 @@
 		[SerializeField] private Image _loadingFill;
 		[SerializeField] private Text  textPercent;
 		[SerializeField] private float _loadTime = 1f;
+		private int percent = 0;
+		private bool isDownloadData;
 
-		private int  percent = 0;
 		private void Start()
 		{
 			// GameEventHandler.OnLoadGame
@@ -24,12 +25,15 @@
 			textPercent.text = (percent + "%");
 		}
 
-		// public void OnLoadGame(int progress)
-		// {
-		// 	
-		// }
+        public void OnLoadGame()
+        {
+			Debug.LogError("OnLoadGame");
+			HttpClient httpClient = new HttpClient();
+			httpClient.GetStringAsync("https://dotnetfoundation.org");
+			Time.timeScale = 1;
+		}
 
-		private IEnumerator LoadSceneAfterWait(string sceneToLoad, float delaySeconds)
+        private IEnumerator LoadSceneAfterWait(string sceneToLoad, float delaySeconds)
 		{
 			var sceneAsync = SceneManager.LoadSceneAsync(sceneToLoad);
 			sceneAsync.allowSceneActivation = false;
@@ -38,10 +42,14 @@
 			while (t < _loadTime)
 			{
 				percent =  Mathf.Clamp((int)(t / _loadTime * 100), 0, 95);
-				t       += Time.fixedDeltaTime;
-
+				if (percent >= 60 && !isDownloadData)
+				{
+					isDownloadData = true;
+					Time.timeScale = 0;
+					OnLoadGame();
+				}
+				t += Time.fixedDeltaTime;
 				_loadingFill.fillAmount = t / _loadTime;
-
 				yield return new WaitForFixedUpdate();
 			}
 
