@@ -15,7 +15,6 @@ public class HwCoordinate : MonoBehaviour
     private Vector3 lastPosition; // Vị trí trước đó của hình chữ nhật
     private Vector3 direction; // Hướng pháp tuyến của đường cong Bézier
 
-
     private void Start()
     {
         // Gán vị trí ban đầu của hình chữ nhật
@@ -28,7 +27,7 @@ public class HwCoordinate : MonoBehaviour
 
     private void Update()
     {
-        /*
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
         // Lựa chọn ngẫu nhiên một trong bốn "Target"
@@ -40,8 +39,10 @@ public class HwCoordinate : MonoBehaviour
         // Cách 2: Sử dụng phép quay vector
          //RotateUsingVector(mySprite.transform, target.transform);
         }
-        */
 
+
+        /*
+         * Dùng bezier để di chuyển hình chữ nhật
         // Tăng tham số t dựa trên tốc độ di chuyển
         t += Time.deltaTime * movementSpeed;
 
@@ -56,6 +57,8 @@ public class HwCoordinate : MonoBehaviour
         // Xoay hình chữ nhật để hướng foward luôn theo hướng pháp tuyến của đường cong
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+        */
+
 
     }
 

@@ -614,6 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 874438021}
   - component: {fileID: 874438022}
+  - component: {fileID: 874438023}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -629,7 +630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874438020}
   m_LocalRotation: {x: 0, y: 0.4969739, z: 0, w: 0.8677655}
-  m_LocalPosition: {x: -1.69, y: 0.25, z: -2.37}
+  m_LocalPosition: {x: -1.686, y: 0.301, z: -2.377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 395906622}
@@ -661,10 +662,31 @@ MonoBehaviour:
   _distanceBetween: 1
   bezierProjectilePrefab: {fileID: 3842641302598337259, guid: b60f79815ae597247b99e12a1b7861e6, type: 3}
   normalProjectilePrefab: {fileID: 2183856804298688674, guid: 4a849c988ab7fd24ba7b58d03dca442f, type: 3}
+  VshapeProjectilePrefab: {fileID: 3842641302598337259, guid: e54dc1b54d3be26469ba57d9037ef6f0, type: 3}
+  numberOfProjectile: 4
+  VShapeProjectileAngle: 45
   fireBezierProjectileKey: 102
   fireNormalProjectileKey: 103
+  fireVshapeProjectileKey: 32
   enemyPosition: {fileID: 1414951802}
+  spawnPoint: {fileID: 1037158928}
   GameSound: {fileID: 0}
+--- !u!114 &874438023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874438020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f4abdb34348c47b7aa27ed0ad7bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 1028581158}
+  CameraTarget: {fileID: 874438021}
+  offset: {x: 0, y: 5.3, z: -6}
+  rotationSpeed: 5
 --- !u!1 &1028581156
 GameObject:
   m_ObjectHideFlags: 0

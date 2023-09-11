@@ -4,6 +4,7 @@
 	using UnityEngine;
 	using UnityEngine.Serialization;
     using static UnityEngine.EventSystems.EventTrigger;
+    using static UnityEngine.GraphicsBuffer;
 
 	[DefaultExecutionOrder(100000)]
 	public class Player : Character
@@ -31,11 +32,14 @@
 		public GameObject VshapeProjectilePrefab;
 
 		public int numberOfProjectile = 5;
+        public float VShapeProjectileAngle;
 
         public KeyCode fireBezierProjectileKey = KeyCode.F;
         public KeyCode fireNormalProjectileKey = KeyCode.G;
+        public KeyCode fireVshapeProjectileKey = KeyCode.Space;
 
         public Transform enemyPosition;
+        public Transform spawnPoint;
 
         private void OnEnable()
         {
@@ -73,7 +77,7 @@
             {
                 FireNormalProjectile();
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKeyDown(fireVshapeProjectileKey))
             {
                 FireNormalProjectileInVShape();
             }
@@ -142,31 +146,34 @@
 		private void FireNormalProjectileInVShape()
 		{
 
-            float angleStep = 180f / (numberOfProjectile - 1); // Angle between each projectile
-            float distanceBetweenRows = 1.0f; // Adjust this value to set the vertical distance between rows
+            GameObject headProjectile = Instantiate(VshapeProjectilePrefab, spawnPoint.position, spawnPoint.rotation);
+            Vector3 direction = enemyPosition.position - spawnPoint.position;
+            VShapeProjectile _projectile = headProjectile.GetComponent<VShapeProjectile>();
+            _projectile.SetDirection(direction, 4f);
+            //Debug.Log(headProjectile.transform.position);
 
-            for (int i = 0; i < numberOfProjectile; i++)
+            for (int i = 1; i < numberOfProjectile; i++)
             {
-                float angle = i * angleStep - 90f; // Angle for the first row of projectiles
+                GameObject bullet1 = Instantiate(VshapeProjectilePrefab, spawnPoint.position, spawnPoint.rotation);
+                _projectile = bullet1.GetComponent<VShapeProjectile>();
 
-                // Calculate the position for the first row
-                Vector3 firstRowPosition = transform.position + Quaternion.Euler(0, angle, 0) * Vector3.forward;
+                Vector3 offset = Quaternion.Euler(0f, VShapeProjectileAngle, 0f) * (transform.position - headProjectile.transform.position).normalized * 1 * i;              
+                offset.y = 0;
+                Debug.Log(offset);
+                bullet1.transform.position = headProjectile.transform.position + offset;
+                //Debug.Log(bullet1.transform.position);
+                _projectile.SetDirection(direction, 4f);
 
-                // Calculate the position for the second row using reflection
-                Vector3 reflection = Vector3.Reflect(firstRowPosition - transform.position, Vector3.up);
-                Vector3 secondRowPosition = transform.position + reflection.normalized * distanceBetweenRows;
+                GameObject bullet2 = Instantiate(VshapeProjectilePrefab, spawnPoint.position, spawnPoint.rotation);
+                _projectile = bullet2.GetComponent<VShapeProjectile>();
 
-                // Calculate the direction from the projectiles to the enemy
-                Vector3 firstRowDirection = (enemyPosition.position - firstRowPosition).normalized;
-                Vector3 secondRowDirection = (enemyPosition.position - secondRowPosition).normalized;
-
-                // Instantiate the projectiles at their respective positions and set their directions
-                GameObject firstRowProjectile = Instantiate(VshapeProjectilePrefab, firstRowPosition, Quaternion.identity);
-                firstRowProjectile.GetComponent<VShapeProjectile>().SetDirection(firstRowDirection, 2f);
-
-                GameObject secondRowProjectile = Instantiate(VshapeProjectilePrefab, secondRowPosition, Quaternion.identity);
-                secondRowProjectile.GetComponent<VShapeProjectile>().SetDirection(secondRowDirection, 2f);
+                offset = Quaternion.Euler(0f, -VShapeProjectileAngle, 0f) * (transform.position - headProjectile.transform.position).normalized * 1 * i;
+                offset.y = 0;
+                bullet2.transform.position = headProjectile.transform.position + offset;
+                //Debug.Log(bullet2.transform.position);
+                _projectile.SetDirection(direction, 4f);
             }
+
 
 
         }

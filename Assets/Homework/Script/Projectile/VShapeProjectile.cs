@@ -10,7 +10,7 @@ public class VShapeProjectile : Projectile
 
     public void SetDirection(Vector3 dir, float projectileSpeed)
     {
-        direction = dir;
+        direction = dir.normalized;
         speed = projectileSpeed;
 
         // Khi đạn được tạo ra, bắt đầu coroutine để tự hủy sau một khoảng thời gian
@@ -20,7 +20,7 @@ public class VShapeProjectile : Projectile
     void Update()
     {
         // Di chuyển viên đạn theo hướng và tốc độ đã thiết lập
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.position += direction * speed * Time.deltaTime;
     }
 
     private IEnumerator DestroyAfterTime()
