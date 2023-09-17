@@ -149,8 +149,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56933383}
-  m_LocalRotation: {x: -0, y: -0, z: 0.000000021855694, w: 1}
-  m_LocalPosition: {x: 0.046749115, y: 0.23904419, z: 1.5361872}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3581236, w: 0.9336742}
+  m_LocalPosition: {x: -1.2099991, y: -1.8999939, z: 1.5361872}
   m_LocalScale: {x: 4, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 821813773}
@@ -418,7 +418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155511594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.87, y: 143.98, z: 0}
+  m_LocalPosition: {x: 112.6, y: 158.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07dbe0cc20d75d4183acb26bde24999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1366094779}
+  target: {fileID: 887507263}
   _smooth: 0.2
   _updateMode: 0
 --- !u!1 &263002423
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 263002424}
   - component: {fileID: 263002426}
   - component: {fileID: 263002425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 353095649}
   - component: {fileID: 353095651}
   - component: {fileID: 353095650}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 635862673}
   - component: {fileID: 635862675}
   - component: {fileID: 635862674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1268,7 +1268,8 @@ GameObject:
   - component: {fileID: 887507266}
   - component: {fileID: 887507265}
   - component: {fileID: 887507264}
-  m_Layer: 0
+  - component: {fileID: 887507267}
+  m_Layer: 7
   m_Name: Player 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1439,6 +1440,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &887507267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887507262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231236a90e0e2f544985e6f08d60c92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 887507264}
+  _movingMode: 0
+  speed: 10
 --- !u!1 &904616919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,6 +1632,7 @@ Transform:
   - {fileID: 1600518887}
   - {fileID: 1332822835}
   - {fileID: 887507263}
+  - {fileID: 2073845725}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1630,7 +1647,7 @@ GameObject:
   - component: {fileID: 987574851}
   - component: {fileID: 987574853}
   - component: {fileID: 987574852}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1850,6 +1867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac5ac17606a4d4fb6261409597dbb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0}
 --- !u!1 &1266626212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,7 +2097,7 @@ GameObject:
   - component: {fileID: 1332822835}
   - component: {fileID: 1332822837}
   - component: {fileID: 1332822836}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2367,7 +2385,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2534,7 +2552,7 @@ GameObject:
   - component: {fileID: 1577535762}
   - component: {fileID: 1577535764}
   - component: {fileID: 1577535763}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2644,7 +2662,7 @@ GameObject:
   - component: {fileID: 1600518890}
   - component: {fileID: 1600518889}
   - component: {fileID: 1600518888}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2933,7 +2951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615536937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1, y: -3.68, z: 1.5361872}
+  m_LocalPosition: {x: -1.21, y: -3.9, z: 1.5361872}
   m_LocalScale: {x: 4, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 821813773}
@@ -3168,7 +3186,7 @@ GameObject:
   - component: {fileID: 1755742089}
   - component: {fileID: 1755742091}
   - component: {fileID: 1755742090}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3402,7 +3420,7 @@ GameObject:
   - component: {fileID: 1873800910}
   - component: {fileID: 1873800912}
   - component: {fileID: 1873800911}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3609,6 +3627,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2073845724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073845725}
+  - component: {fileID: 2073845726}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2073845725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073845724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.44, y: 4.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 966087118}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2073845726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073845724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac5ac17606a4d4fb6261409597dbb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: -0.85167927, y: -0.52406335}
 --- !u!1 &2088581413
 GameObject:
   m_ObjectHideFlags: 0
