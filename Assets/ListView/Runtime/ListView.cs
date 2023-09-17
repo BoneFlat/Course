@@ -60,7 +60,7 @@ namespace JackieSoft
  
             var pointEnd = pointStart + layout.listViewSize;
             var start = pointStart < _cells[0].top ? 0 : CellAt(0, _cells.Length - 1, pointStart);
-            var end = pointEnd > _cells[data.Count - 1].down ? (_cells.Length - 1) : CellAt(0, _cells.Length - 1, pointEnd);
+            var end = pointEnd > _cells[_cells.Length - 1].down ? (_cells.Length - 1) : CellAt(0, _cells.Length - 1, pointEnd);
 
             var dirty = false;
             if (start != _top)
@@ -195,9 +195,9 @@ namespace JackieSoft
 
             // cell n - 1
             var cellLastSize = layout.CellSize(_cellCreator.CellSize(data[data.Count - 1]));
-            _cells[data.Count - 1] = new Cell
+            _cells[_cells.Length -1] = new Cell
             {
-                data = data[data.Count - 1],
+                data = data[data.Count -1],
                 point = contentSize,
                 size = cellLastSize,
                 top = contentSize - 0.5f * spacing,
@@ -255,7 +255,7 @@ namespace JackieSoft
             else
             {
                 _leFooter.gameObject.SetActive(true);
-                layout.SetElement(_leFooter, _cells[data.Count - 1].point - _cells[_bottom].point - spacing - _cells[_bottom].size + _cells[data.Count - 1].size);
+                layout.SetElement(_leFooter, _cells[_cells.Length - 1].point - _cells[_bottom].point - spacing - _cells[_bottom].size + _cells[_cells.Length - 1].size);
                 order.SetFooterSibling();
             }
         }
