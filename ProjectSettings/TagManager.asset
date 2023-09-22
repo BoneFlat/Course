@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - RigidbodyCollider
+  - StaticCollider
+  - Kinematic
+  - Ground
   layers:
   - Default
   - TransparentFX
