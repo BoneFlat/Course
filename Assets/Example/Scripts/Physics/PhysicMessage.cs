@@ -5,7 +5,14 @@
 
 	public class PhysicMessage : MonoBehaviour
 	{
-		private void OnTriggerEnter2D(Collider2D other)
+        private void OnDrawGizmos()
+        {
+			Gizmos.DrawLine(transform.position, transform.position + transform.up * -1 * 100);
+
+			Gizmos.color = Color.green;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
 		{
 			Debug.Log($"{gameObject.name} enter trigger with {other.name}");
 		}
