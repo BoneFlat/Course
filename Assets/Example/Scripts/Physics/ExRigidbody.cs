@@ -1,4 +1,5 @@
 ﻿using System;
+using Example.Scripts.Homework;
 using UnityEngine;
 
 namespace Example.Scripts
@@ -11,6 +12,7 @@ namespace Example.Scripts
         [SerializeField] private MovingMode _movingMode;
         [SerializeField] private float speed = 5;
 
+        [SerializeField] private HwDetectCollision _detectCollision;
         private void Start()
         {
             Application.targetFrameRate = 30;
@@ -32,6 +34,8 @@ namespace Example.Scripts
             {
                 if (Input.GetAxisRaw("Horizontal") == 0)
                     return;
+
+                if (!_detectCollision.CanMove) return;
                 
                 switch (_movingMode)
                 {
