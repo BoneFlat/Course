@@ -11,6 +11,8 @@ namespace Jackal
 	using System.Text;
 	using System.Threading.Tasks;
 
+	
+
 	public class FakeLoader : MonoBehaviour
 	{
 		[SerializeField] private Image _loadingFill;
@@ -19,11 +21,49 @@ namespace Jackal
 		[SerializeField] private Text downloadState;
 		private HttpClient https = new HttpClient();
 		private string html;
+		
+		public interface IWeapon
+		{
+			void GetWeapon();
+		}
+
+		public struct Weapon : IWeapon
+		{
+			public void GetWeapon()
+			{
+			
+			}
+		}
+		
+		public class WeaponClass : IWeapon
+		{
+			public void GetWeapon()
+			{
+				
+			}
+		}
+
+		public void Method()
+		{
+			var gun = new Weapon();
+			var gunClass = new WeaponClass();
+			IWeapon weaponClass = gunClass;
+
+			IWeapon weapon = gun;
+			IWeapon newGun = (IWeapon)weapon;
+
+			IWeapon newGunClass = (IWeapon)weaponClass;
+			
+			Debug.Log((newGun));
+			Debug.Log((newGunClass));
+
+		}
 
 
 		private int  percent = 0;
 		private async Task Start()
 		{
+			Method();
 			// GameEventHandler.OnLoadGame
 			downloadState.text = "WaitForDownload";
 			await LoadSceneAfterWait("ExGame");
