@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace JackieSoft
@@ -10,8 +11,8 @@ namespace JackieSoft
     public class ListView : MonoBehaviour
     {
         public List<Cell.IData> data;
-        [SerializeReference, SubclassSelector] private Layout layout = new Vertical();
-        [SerializeReference, SubclassSelector] private Order order = new Ascending();
+        [SerializeReference, SubclassSelector] private Layout _layout = new Vertical();
+        [FormerlySerializedAs("order")] [SerializeReference, SubclassSelector] private Order _order = new Ascending();
         [SerializeField] public RectOffset padding;
         [SerializeField] public float spacing;
 
@@ -20,6 +21,9 @@ namespace JackieSoft
         private RectTransform _tContent;
         private LayoutElement _leHeader, _leFooter;
         private Cell[] _cells;
+        
+        private int _top, _bottom;
+
         
         private void Awake()
         {
@@ -37,9 +41,9 @@ namespace JackieSoft
             _leHeader.transform.SetParent(_tContent, false);
             _leFooter.transform.SetParent(_tContent, false);
 
-            layout.Set(_scrollRect);
-            layout.Awake(_tContent, padding, _scrollRect.viewport.rect, order, spacing);
-            order.Awake(_leHeader.GetComponent<RectTransform>(), _leFooter.GetComponent<RectTransform>());
+            _layout.Set(_scrollRect);
+            _layout.Awake(_tContent, padding, _scrollRect.viewport.rect, _order, spacing);
+            _order.Awake(_leHeader.GetComponent<RectTransform>(), _leFooter.GetComponent<RectTransform>());
         }
 
         private void OnEnable()
@@ -52,13 +56,12 @@ namespace JackieSoft
             _scrollRect.onValueChanged.RemoveListener(OnValueChanged);
         }
 
-        private int _top, _bottom;
 
         private void OnValueChanged(Vector2 val)
         {
-            var pointStart = layout.CalculatePoint(val);
+            var pointStart = _layout.CalculatePoint(val);
  
-            var pointEnd = pointStart + layout.listViewSize;
+            var pointEnd = pointStart + _layout.listViewSize;
             var start = pointStart < _cells[0].top ? 0 : CellAt(0, _cells.Length - 1, pointStart);
             var end = pointEnd > _cells[_cells.Length - 1].down ? (_cells.Length - 1) : CellAt(0, _cells.Length - 1, pointEnd);
 
@@ -105,7 +108,7 @@ namespace JackieSoft
         {
             var count = _tContent.childCount;
             for (var i = _top; i <= _bottom; i++)
-                order.SetSibling(((Component)_cells[i].view).transform, i - _top, count);
+                _order.SetSibling(((Component)_cells[i].view).transform, i - _top, count);
         }
 
         private int CellAt(int top, int down, float point)
@@ -157,12 +160,12 @@ namespace JackieSoft
 
         public void Initialize()
         {
-            var listViewSize = layout.listViewSize;
+            var listViewSize = _layout.listViewSize;
             _cells = new Cell[data.Count];
 
-            var contentSize = layout.firstPadding;
+            var contentSize = _layout.firstPadding;
 
-            var cell0size = layout.CellSize(_cellCreator.CellSize(data[0]));
+            var cell0size = _layout.CellSize(_cellCreator.CellSize(data[0]));
             // cell 0;
             _cells[0] = new Cell
             {
@@ -176,14 +179,14 @@ namespace JackieSoft
             contentSize = contentSize + cell0size + spacing;
 
             // cell 1 - cell n-2
-            for (var i = 1; i < data.Count - 1; i++)
+            for (var cell = 1; cell < data.Count - 1; cell++)
             {
-                var cellData = data[i];
-                var cellSize = layout.CellSize(_cellCreator.CellSize(cellData));
+                var cellData = data[cell];
+                var cellSize = _layout.CellSize(_cellCreator.CellSize(cellData));
 
-                _cells[i] = new Cell
+                _cells[cell] = new Cell
                 {
-                    data = data[i],
+                    data = data[cell],
                     point = contentSize,
                     size = cellSize,
                     top = contentSize - 0.5f * spacing,
@@ -194,17 +197,17 @@ namespace JackieSoft
             }
 
             // cell n - 1
-            var cellLastSize = layout.CellSize(_cellCreator.CellSize(data[data.Count - 1]));
+            var cellLastSize = _layout.CellSize(_cellCreator.CellSize(data[data.Count - 1]));
             _cells[_cells.Length -1] = new Cell
             {
                 data = data[data.Count -1],
                 point = contentSize,
                 size = cellLastSize,
                 top = contentSize - 0.5f * spacing,
-                down = contentSize + cellLastSize + layout.lastPadding,
+                down = contentSize + cellLastSize + _layout.lastPadding,
             };
 
-            contentSize = contentSize + cellLastSize + layout.lastPadding;
+            contentSize = contentSize + cellLastSize + _layout.lastPadding;
 
             _top = 0;
             _bottom = 0;
@@ -222,7 +225,7 @@ namespace JackieSoft
                 }
             }
 
-            layout.SetContent(contentSize);
+            _layout.SetContent(contentSize);
 
             Active(_top, _bottom);
 
@@ -241,8 +244,8 @@ namespace JackieSoft
             {
                 _leHeader.gameObject.SetActive(true);
 
-                layout.SetElement(_leHeader, _cells[_top].point - _cells[0].point - spacing);
-                order.SetHeaderSibling();
+                _layout.SetElement(_leHeader, _cells[_top].point - _cells[0].point - spacing);
+                _order.SetHeaderSibling();
             }
         }
 
@@ -255,8 +258,8 @@ namespace JackieSoft
             else
             {
                 _leFooter.gameObject.SetActive(true);
-                layout.SetElement(_leFooter, _cells[_cells.Length - 1].point - _cells[_bottom].point - spacing - _cells[_bottom].size + _cells[_cells.Length - 1].size);
-                order.SetFooterSibling();
+                _layout.SetElement(_leFooter, _cells[_cells.Length - 1].point - _cells[_bottom].point - spacing - _cells[_bottom].size + _cells[_cells.Length - 1].size);
+                _order.SetFooterSibling();
             }
         }
 
