@@ -1,4 +1,6 @@
-﻿namespace Example
+﻿using HomeWork;
+
+namespace Example
 {
 	using System;
 	using UnityEngine;
@@ -113,16 +115,12 @@
 			}
 		}
 
-		public void StopMove()
+		private void Update()
 		{
-			
-		}
-
-		public GameSound GameSound;
-		public void Die()
-		{
-            GameSound.DisableSound();
-            // GameEventHandler.OnPlayerDie?.Invoke();
+			if (Input.GetKeyDown(KeyCode.F))
+			{
+				SpawnProjectile();
+			}
 		}
 
 		private void OnDrawGizmos()
@@ -149,7 +147,65 @@
 			}
 			
 			Gizmos.DrawSphere(transform.position, 0.1f);
+			
+			var direction = enemy.position - transform.position;
+			var orginPos = transform.position;
+			var vCenter = -direction;
+			var vLineLeft = vCenter.Rotate2DOnOxzBy(_vAngle / 2, 1);
+			var vLineRight = vCenter.Rotate2DOnOxzBy(-_vAngle / 2, 1);
+			
+			Gizmos.DrawLine(orginPos, enemy.position);
+			Gizmos.DrawLine(orginPos, orginPos + vLineLeft * 10);
+			Gizmos.DrawLine(orginPos, orginPos + vLineRight * 10);
 		}
-		
+
+		[Header("Shoot settings")]
+		public Transform enemy;
+		public GameObject projectilePrefab;
+		public float _bulletSpeed = 10;
+
+		[Header("V shoot settings")] 
+		public int _rowLevel = 2;
+		public float _vAngle = 60;
+		public float _deltaDistance = 1f;
+
+		public void SpawnProjectile()
+		{
+			var type = UnityEngine.Random.Range(0, 100) > 50 ? TrajectoryType.Linear : TrajectoryType.Bezier;
+			var direction = enemy.position - transform.position;
+			var lifeTime = direction.magnitude / _bulletSpeed;
+			
+			direction.Normalize();
+
+			if (UnityEngine.Random.Range(0, 100) > 50) // shoot single
+			{
+				var go = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+				var projectile = go.GetComponent<Projectile>();
+				projectile.Shoot(direction, lifeTime, _bulletSpeed, type);
+			}
+			else // shot V
+			{
+				var orginPos = transform.position;
+				var vCenter = -direction;
+				var vLineLeft = vCenter.Rotate2DOnOxzBy(_vAngle / 2, 1);
+				var vLineRight = vCenter.Rotate2DOnOxzBy(-_vAngle / 2, 1);
+
+				var go = Instantiate(projectilePrefab, orginPos, Quaternion.identity);
+				var projectile = go.GetComponent<Projectile>();
+				projectile.Shoot(direction, lifeTime, _bulletSpeed, type);
+				
+				for (int i = 1; i <= _rowLevel; i++)
+				{
+					var go1 = Instantiate(projectilePrefab, orginPos + vLineLeft * _deltaDistance * i, Quaternion.identity);
+					var projectile1 = go1.GetComponent<Projectile>();
+					projectile1.Shoot(direction, lifeTime, _bulletSpeed, type);
+					
+					var go2 = Instantiate(projectilePrefab, orginPos + vLineRight * _deltaDistance * i, Quaternion.identity);
+					var projectile2 = go2.GetComponent<Projectile>();
+					projectile2.Shoot(direction, lifeTime, _bulletSpeed, type);
+				}
+			}
+			
+		}
 	}
 }
