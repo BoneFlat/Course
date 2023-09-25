@@ -1,34 +1,18 @@
-﻿using System;
-using Example.Scripts;
+﻿using Example.Scripts;
 using UnityEngine;
 
-namespace Example.Scripts
+namespace HomeWork._3
 {
-    [DefaultExecutionOrder(1)]
-    // https://docs.unity3d.com/Manual/CollidersOverview.html
-    public class ExRigidbody : MonoBehaviour
+    public class RaycastMovement : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rigidbody2D;
-        [SerializeField] private MovingMode _movingMode;
+        [SerializeField] private ExRigidbody.MovingMode _movingMode;
         [SerializeField] private float speed = 5;
-
-        private void Start()
-        {
-            Application.targetFrameRate = 30;
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            Debug.Log($"On trigger {other.name}");
-        }
-
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            Debug.Log($"On Collision {other.gameObject.name}");
-        }
-
+        
         private void FixedUpdate()
         {
+            var prevPos = transform.position;
+            
             if (_rigidbody2D != null)
             {
                 if (Input.GetAxisRaw("Horizontal") == 0)
@@ -36,35 +20,31 @@ namespace Example.Scripts
                 
                 switch (_movingMode)
                 {
-                    case MovingMode.AddForce:
-                        _rigidbody2D.AddForce(Input.GetAxisRaw("Horizontal") * speed * Vector2.right);
-                        break;
-                    case MovingMode.Velocity:
+                    case ExRigidbody.MovingMode.Velocity:
                         _rigidbody2D.velocity =
                             Input.GetAxisRaw("Horizontal") * speed * Vector2.right ;
                         
                         break;
 
-                    case MovingMode.MovePosition:
+                    case ExRigidbody.MovingMode.MovePosition:
                         _rigidbody2D.MovePosition(_rigidbody2D.position +
                                                   Input.GetAxisRaw("Horizontal") * speed * Time.fixedDeltaTime *
                                                   Vector2.right);
 
                         break;
-                    case MovingMode.Transform:
+                    case ExRigidbody.MovingMode.Transform:
                         _rigidbody2D.position += Input.GetAxisRaw("Horizontal") * speed * Time.fixedDeltaTime *
                                                  Vector2.right;
                         break;
                 }
             }
-        }
 
-        public enum MovingMode
-        {
-            AddForce,
-            Velocity,
-            MovePosition,
-            Transform
+            if (Physics2D.Raycast(transform.position, Vector2.right, 2.5f) && Input.GetAxisRaw("Horizontal") >= 0||
+                Physics2D.Raycast(transform.position, Vector2.left, 2.5f) && Input.GetAxisRaw("Horizontal") <= 0)
+            {
+                _rigidbody2D.position = prevPos;
+                _rigidbody2D.velocity = Vector2.zero;
+            }
         }
     }
 }

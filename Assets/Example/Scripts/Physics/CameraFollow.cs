@@ -15,7 +15,10 @@ namespace Example.Scripts
         private void Start()
         {
             _offset = target.position - transform.position;
+<<<<<<< HEAD
             //gameObject.layer = LayerMask.NameToLayer("Default");
+=======
+>>>>>>> master
         }
 
         private void Update()

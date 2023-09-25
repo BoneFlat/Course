@@ -15,6 +15,17 @@
 			return Vector3.up * y + Vector3.right * x;
 		}
 		
+		public static Vector3 Rotate2DOnOxzBy(this Vector3 root, float degree, float magnitude)
+		{
+			var rootOxAngle = Vector3.SignedAngle(Vector3.forward, root, Vector3.up);
+			var angle       = rootOxAngle + degree;
+
+			var z = Mathf.Cos(angle * Mathf.Deg2Rad) * magnitude;
+			var x = Mathf.Sin(angle * Mathf.Deg2Rad) * magnitude;
+
+			return Vector3.forward * z + Vector3.right * x;
+		}
+		
 		public static Vector3 QuadraticBezier(Vector3 startPosition, Vector3 heightPosition, Vector3 endPosition, float t)
 		{
 			var r = 1 - t;
